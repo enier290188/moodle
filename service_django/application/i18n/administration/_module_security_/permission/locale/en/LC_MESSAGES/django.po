@@ -1,0 +1,59 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+
+
+
+msgid "ADMINISTRATION_MODULE_SECURITY_PERMISSIONS"
+msgstr "Permissions"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_PERMISSION"
+msgstr "Permission"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_PERMISSION_TABLE_NAME"
+msgstr "Name"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_PERMISSION_TABLE_IDENTIFIER"
+msgstr "Identifier"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_PERMISSION_TABLE_IS_ACTIVE"
+msgstr "Is active"
+
+
+
+msgid "ADMINISTRATION_MODULE_SECURITY_PERMISSION_ID"
+msgstr "ID"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_PERMISSION_IS_ACTIVE"
+msgstr "Is active"
+msgid "ADMINISTRATION_MODULE_SECURITY_PERMISSION_IS_ACTIVE_HELP_TEXT"
+msgstr "Indicates whether this instance should be treated as active. Disable this option instead of deleting it."
+
+msgid "ADMINISTRATION_MODULE_SECURITY_PERMISSION_CREATED"
+msgstr "Created"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_PERMISSION_MODIFIED"
+msgstr "Modified"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_PERMISSION_NAME"
+msgstr "Name"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_PERMISSION_IDENTIFIER"
+msgstr "Identifier"
+
+
+
+msgid "ADMINISTRATION_MODULE_SECURITY_PERMISSION_VALIDATION Only letters, numbers and the special character dot."
+msgstr "Only letters, numbers and the special character dot."
+
+msgid "ADMINISTRATION_MODULE_SECURITY_PERMISSION_VALIDATION Only letters, numbers and special characters dot, -, _ and space."
+msgstr "Only letters, numbers and special characters dot, -, _ and space."
+
+msgid "ADMINISTRATION_MODULE_SECURITY_PERMISSION_VALIDATION This name has already been chosen."
+msgstr "This name has already been chosen."
+
+msgid "ADMINISTRATION_MODULE_SECURITY_PERMISSION_VALIDATION This identifier has already been chosen."
+msgstr "This identifier has already been chosen."

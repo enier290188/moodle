@@ -1,0 +1,79 @@
+{% load i18n security %}
+{% get_current_language as ctx_current_language %}
+
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <form method="post" action="{% url "administration:module:documentation:document:create" %}" class="link-div-modal-action-create-from-administration-documentation-document">
+            {% csrf_token %}
+            <div class="modal-header d-flex flex-row justify-content-between">
+                <p class="modal-title align-self-center"><i class="fa fa-plus"></i> {% trans "ADMINISTRATION_MODULE_ACTION_CREATE" %} &OpenCurlyDoubleQuote;{% trans "ADMINISTRATION_MODULE_DOCUMENTATION_DOCUMENT" %}&CloseCurlyDoubleQuote;</p>
+                <button type="button" class="btn btn-sm btn-action btn-action-outline align-self-center link-div-modal-action-close" title="{% trans "ADMINISTRATION_MODULE_ACTION_CLOSE" %}"><i class="fa fa-close"></i></button>
+            </div>
+            <div class="modal-body">
+                <!-- Modal Menssage -->
+                <div class="modal-message"></div>
+                <!-- Modal Tabs -->
+                <div class="modal-tab">
+                    <nav>
+                        <div id="tabs" class="nav nav-tabs" role="tablist">
+                            <a id="tab-en" class="nav-item nav-link {% if ctx_current_language == "en" %}active{% endif %} {% if ctx_form.title_en.errors or ctx_form.content_en.errors %}has-error{% endif %}" aria-selected="{% if ctx_current_language == "en" %}true{% else %}false{% endif %}" aria-controls="content-en" href="#content-en" data-toggle="tab" role="tab">{% trans "ADMINISTRATION_MODULE_DOCUMENTATION_DOCUMENT_LOCALE_EN" %}</a>
+                            <a id="tab-es" class="nav-item nav-link {% if ctx_current_language == "es" %}active{% endif %} {% if ctx_form.title_es.errors or ctx_form.content_es.errors %}has-error{% endif %}" aria-selected="{% if ctx_current_language == "es" %}true{% else %}false{% endif %}" aria-controls="content-es" href="#content-es" data-toggle="tab" role="tab">{% trans "ADMINISTRATION_MODULE_DOCUMENTATION_DOCUMENT_LOCALE_ES" %}</a>
+                        </div>
+                    </nav>
+                    <div id="contents" class="tab-content">
+                        <div id="content-en" class="tab-pane fade {% if ctx_current_language == "en" %}show active{% endif %}" aria-labelledby="tab-en" role="tabpanel">
+                            <!-- Modal Form -->
+                            <div class="modal-form">
+                                {% with ctx_field=ctx_form.title_en %}
+                                    {% include "administration/_include_/div_modal/_include_/form/textfield/textfield.html" %}
+                                {% endwith %}
+
+                                <div class="divider-transparent"></div>
+                                {% with ctx_field=ctx_form.content_en %}
+                                    {% include "administration/_include_/div_modal/_include_/form/textarea/textarea.html" %}
+                                {% endwith %}
+                            </div>
+                        </div>
+                        <div id="content-es" class="tab-pane fade {% if ctx_current_language == "es" %}show active{% endif %}" aria-labelledby="tab-es" role="tabpanel">
+                            <!-- Modal Form -->
+                            <div class="modal-form">
+                                {% with ctx_field=ctx_form.title_es %}
+                                    {% include "administration/_include_/div_modal/_include_/form/textfield/textfield.html" %}
+                                {% endwith %}
+
+                                <div class="divider-transparent"></div>
+                                {% with ctx_field=ctx_form.content_es %}
+                                    {% include "administration/_include_/div_modal/_include_/form/textarea/textarea.html" %}
+                                {% endwith %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="divider-transparent"></div>
+                <div class="modal-form">
+                    {% with ctx_field=ctx_form.is_active %}
+                        {% include "administration/_include_/div_modal/_include_/form/checkbox/checkbox.html" %}
+                    {% endwith %}
+                </div>
+            </div>
+            <div class="modal-footer d-flex flex-row justify-content-between">
+                <div>
+                    <button type="submit" id="button-submit-create" class="btn btn-sm btn-action btn-action-bg" title="{% trans "ADMINISTRATION_MODULE_ACTION_CREATE" %}">
+                        <i class="fa fa-plus"></i> {% trans "ADMINISTRATION_MODULE_ACTION_CREATE" %}
+                    </button>
+                    {% if request|boolean___has_permission_security_user:"documentation_document_update" %}
+                        <button type="submit" id="button-submit-create-and-update" class="btn btn-sm btn-action btn-action-bg" title="{% trans "ADMINISTRATION_MODULE_ACTION_CREATE_UPDATE" %}">
+                            <i class="fa fa-pencil"></i> <span class="d-none d-md-inline-block">{% trans "ADMINISTRATION_MODULE_ACTION_CREATE_UPDATE" %}</span>
+                        </button>
+                    {% endif %}
+                    <button type="button" class="btn btn-sm btn-action btn-action-outline link-div-modal-action-refresh-from-administration-documentation-document-create" data-url="{% url "administration:module:documentation:document:create" %}" title="{% trans "ADMINISTRATION_MODULE_ACTION_REFRESH" %}">
+                        <i class="fa fa-refresh"></i> <span class="d-none d-md-inline-block">{% trans "ADMINISTRATION_MODULE_ACTION_REFRESH" %}</span>
+                    </button>
+                    <button type="button" class="btn btn-sm btn-action btn-action-outline link-div-modal-action-close" title="{% trans "ADMINISTRATION_MODULE_ACTION_CLOSE" %}">
+                        <i class="fa fa-close"></i> <span class="d-none d-md-inline-block">{% trans "ADMINISTRATION_MODULE_ACTION_CLOSE" %}</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+@import "variables";
+
+#div-leftside {
+  display: none;
+  top: $div-header-height * 2;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1034;
+
+  &.collapse {
+    display: none;
+  }
+
+  &.show {
+    display: inherit;
+  }
+
+  &.collapsing {
+    display: inherit;
+  }
+}

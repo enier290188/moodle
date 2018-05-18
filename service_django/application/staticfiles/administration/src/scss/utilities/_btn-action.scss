@@ -1,0 +1,33 @@
+@import "../variables";
+
+.btn.btn-action {
+  color: $color-primary;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &.btn-action-bg {
+    background-color: $color-primary;
+    border-color: $color-primary;
+    color: $color-light;
+  }
+
+  &.btn-action-outline {
+    background-color: $color-light;
+    border-color: $color-border;
+    color: $color-primary;
+  }
+
+  &:hover:not(.disabled) {
+    background-color: $color-border;
+    border-color: transparent;
+    color: $color-primary;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem transparent;
+  }
+
+  &:active {
+    border-color: $color-light;
+  }
+}

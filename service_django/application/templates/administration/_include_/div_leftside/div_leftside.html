@@ -1,0 +1,79 @@
+{% load i18n security %}
+
+{% if request|boolean___is_not_security_user_equal_none %}
+    <div id="div-leftside-user" class="container-fluid">
+        <div class="row">
+            <div class="col-auto m-0 p-0">
+                <img src="{{ request|string___security_user_avatar_url }}" class="avatar rounded-circle"/>
+            </div>
+            <div class="col m-0 p-0">
+                <p class="data">{{ request|instance___security_user }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="div-leftside-nav" class="container-fluid">
+        <div class="row">
+            <div class="col mt-2 mr-0 mb-3 ml-0 p-0">
+                <ul class="level-0 nav">
+                    {% if request|boolean___has_permission_security_user:"security_requestedlocaluser_list" or request|boolean___has_permission_security_user:"security_localuser_list" or request|boolean___has_permission_security_user:"security_requestedldapuser_list" or request|boolean___has_permission_security_user:"security_ldapuser_list" or request|boolean___has_permission_security_user:"security_importedldapuser_list" or request|boolean___has_permission_security_user:"security_group_list" or request|boolean___has_permission_security_user:"security_permission_list" %}
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" data-target="#div-leftside-menu-1" aria-controls="div-leftside-menu-1" aria-expanded="false"><span><i class="fa fa-user-secret"></i> {% trans "ADMINISTRATION_DIV_LEFTSIDE_NAV_SECURITY" %}</span></a>
+                            <ul id="div-leftside-menu-1" class="level-1 collapse">
+                                {% if request|boolean___has_permission_security_user:"security_requestedlocaluser_list" or request|boolean___has_permission_security_user:"security_localuser_list" %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="collapse" data-target="#div-leftside-menu-1-1" aria-controls="div-leftside-menu-1-1" aria-expanded="false"><span><i class="fa fa-book"></i> {% trans "ADMINISTRATION_DIV_LEFTSIDE_NAV_SECURITY_LOCAL" %}</span></a>
+                                        <ul id="div-leftside-menu-1-1" class="level-2 collapse">
+                                            {% if request|boolean___has_permission_security_user:"security_requestedlocaluser_list" %}
+                                                {% url "administration:module:security:requestedlocaluser:index" as ctx_url %}
+                                                <li class="nav-item"><a class="link-div-center-div-content-reload nav-link {% if ctx_url == request|string___security_user_url_current %}active{% endif %}" data-url="{{ ctx_url }}"><span><i class="fa fa-list-ol"></i> {% trans "ADMINISTRATION_DIV_LEFTSIDE_NAV_SECURITY_LOCAL_REQUESTEDUSERS" %}</span></a></li>
+                                            {% endif %}
+                                            {% if request|boolean___has_permission_security_user:"security_localuser_list" %}
+                                                {% url "administration:module:security:localuser:index" as ctx_url %}
+                                                <li class="nav-item"><a class="link-div-center-div-content-reload nav-link {% if ctx_url == request|string___security_user_url_current %}active{% endif %}" data-url="{{ ctx_url }}"><span><i class="fa fa-list-ol"></i> {% trans "ADMINISTRATION_DIV_LEFTSIDE_NAV_SECURITY_LOCAL_USERS" %}</span></a></li>
+                                            {% endif %}
+                                        </ul>
+                                    </li>
+                                {% endif %}
+                                {% if request|boolean___has_permission_security_user:"security_requestedldapuser_list" or request|boolean___has_permission_security_user:"security_ldapuser_list" or request|boolean___has_permission_security_user:"security_importedldapuser_list" %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="collapse" data-target="#div-leftside-menu-1-2" aria-controls="div-leftside-menu-1-2" aria-expanded="false"><span><i class="fa fa-book"></i> {% trans "ADMINISTRATION_DIV_LEFTSIDE_NAV_SECURITY_LDAP" %}</span></a>
+                                        <ul id="div-leftside-menu-1-2" class="level-2 collapse">
+                                            {% if request|boolean___has_permission_security_user:"security_requestedldapuser_list" %}
+                                                {% url "administration:module:security:requestedldapuser:index" as ctx_url %}
+                                                <li class="nav-item"><a class="link-div-center-div-content-reload nav-link {% if ctx_url == request|string___security_user_url_current %}active{% endif %}" data-url="{{ ctx_url }}"><span><i class="fa fa-list-ol"></i> {% trans "ADMINISTRATION_DIV_LEFTSIDE_NAV_SECURITY_LDAP_REQUESTEDUSERS" %}</span></a></li>
+                                            {% endif %}
+                                            {% if request|boolean___has_permission_security_user:"security_ldapuser_list" %}
+                                                {% url "administration:module:security:ldapuser:index" as ctx_url %}
+                                                <li class="nav-item"><a class="link-div-center-div-content-reload nav-link {% if ctx_url == request|string___security_user_url_current %}active{% endif %}" data-url="{{ ctx_url }}"><span><i class="fa fa-list-ol"></i> {% trans "ADMINISTRATION_DIV_LEFTSIDE_NAV_SECURITY_LDAP_USERS" %}</span></a></li>
+                                            {% endif %}
+                                        </ul>
+                                    </li>
+                                {% endif %}
+                                {% if request|boolean___has_permission_security_user:"security_group_list" %}
+                                    {% url "administration:module:security:group:index" as ctx_url %}
+                                    <li class="nav-item"><a class="link-div-center-div-content-reload nav-link {% if ctx_url == request|string___security_user_url_current %}active{% endif %}" data-url="{{ ctx_url }}"><span><i class="fa fa-list-ol"></i> {% trans "ADMINISTRATION_DIV_LEFTSIDE_NAV_SECURITY_GROUPS" %}</span></a></li>
+                                {% endif %}
+                                {% if request|boolean___has_permission_security_user:"security_permission_list" %}
+                                    {% url "administration:module:security:permission:index" as ctx_url %}
+                                    <li class="nav-item"><a class="link-div-center-div-content-reload nav-link {% if ctx_url == request|string___security_user_url_current %}active{% endif %}" data-url="{{ ctx_url }}"><span><i class="fa fa-list-ol"></i> {% trans "ADMINISTRATION_DIV_LEFTSIDE_NAV_SECURITY_PERMISSIONS" %}</span></a></li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                    {% endif %}
+                    {% if request|boolean___has_permission_security_user:"documentation_document_list" %}
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" data-target="#div-leftside-menu-2" aria-controls="div-leftside-menu-2" aria-expanded="false"><span><i class="fa fa-book"></i> {% trans "ADMINISTRATION_DIV_LEFTSIDE_NAV_DOCUMENTATION" %}</span></a>
+                            <ul id="div-leftside-menu-2" class="level-1 collapse">
+                                {% if request|boolean___has_permission_security_user:"documentation_document_list" %}
+                                    {% url "administration:module:documentation:document:index" as ctx_url %}
+                                    <li class="nav-item"><a class="link-div-center-div-content-reload nav-link {% if ctx_url == request|string___security_user_url_current %}active{% endif %}" data-url="{{ ctx_url }}"><span><i class="fa fa-list-ol"></i> {% trans "ADMINISTRATION_DIV_LEFTSIDE_NAV_DOCUMENTATION_DOCUMENTS" %}</span></a></li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endif %}

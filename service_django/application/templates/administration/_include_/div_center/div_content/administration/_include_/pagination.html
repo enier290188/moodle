@@ -1,0 +1,39 @@
+{% if ctx_page.paginator.num_pages > 1 %}
+    <ul class="pagination pagination-sm justify-content-center">
+        {% if ctx_page.paginator.num_pages <= 7 %}
+            {% with ''|center:ctx_page.paginator.num_pages as range %}
+                {% for _ in range %}
+                    <li class="page-item {% if ctx_page.number == forloop.counter %}active{% endif %}"><a class="page-link link-div-center-div-content-table-tbody-and-pagination-action-pagination" data-url="{{ ctx_url }}?search={{ ctx_search }}&page={{ forloop.counter }}">{{ forloop.counter }}</a></li>
+                {% endfor %}
+            {% endwith %}
+        {% else %}
+            {% if ctx_page.number == 1 or ctx_page.number == 2 or ctx_page.number == 3 %}
+                <li class="page-item {% if ctx_page.number == 1 %}active{% endif %}"><a class="page-link link-div-center-div-content-table-tbody-and-pagination-action-pagination" data-url="{{ ctx_url }}?search={{ ctx_search }}&page=1">1</a></li>
+                <li class="page-item {% if ctx_page.number == 2 %}active{% endif %}"><a class="page-link link-div-center-div-content-table-tbody-and-pagination-action-pagination" data-url="{{ ctx_url }}?search={{ ctx_search }}&page=2">2</a></li>
+                <li class="page-item {% if ctx_page.number == 3 %}active{% endif %}"><a class="page-link link-div-center-div-content-table-tbody-and-pagination-action-pagination" data-url="{{ ctx_url }}?search={{ ctx_search }}&page=3">3</a></li>
+                <li class="page-item"><a class="page-link link-div-center-div-content-table-tbody-and-pagination-action-pagination" data-url="{{ ctx_url }}?search={{ ctx_search }}&page=4">4</a></li>
+                <li class="page-item"><a class="page-link link-div-center-div-content-table-tbody-and-pagination-action-pagination" data-url="{{ ctx_url }}?search={{ ctx_search }}&page=5">5</a></li>
+                <li class="page-item disabled"><a class="page-link link-div-center-div-content-table-tbody-and-pagination-action-pagination" data-url="{{ ctx_url }}?search={{ ctx_search }}&page={{ ctx_page.number }}">...</a></li>
+                <li class="page-item"><a class="page-link link-div-center-div-content-table-tbody-and-pagination-action-pagination" data-url="{{ ctx_url }}?search={{ ctx_search }}&page={{ ctx_page.paginator.num_pages }}">{{ ctx_page.paginator.num_pages }}</a></li>
+            {% else %}
+                {% if ctx_page.number == ctx_page.paginator.num_pages or ctx_page.number == ctx_page.paginator.num_pages|add:"-1" or ctx_page.number == ctx_page.paginator.num_pages|add:"-2" %}
+                    <li class="page-item"><a class="page-link link-div-center-div-content-table-tbody-and-pagination-action-pagination" data-url="{{ ctx_url }}?search={{ ctx_search }}&page=1">1</a></li>
+                    <li class="page-item disabled"><a class="page-link link-div-center-div-content-table-tbody-and-pagination-action-pagination" data-url="{{ ctx_url }}?search={{ ctx_search }}&page={{ ctx_page.number }}">...</a></li>
+                    <li class="page-item"><a class="page-link link-div-center-div-content-table-tbody-and-pagination-action-pagination" data-url="{{ ctx_url }}?search={{ ctx_search }}&page={{ ctx_page.paginator.num_pages|add:"-4" }}">{{ ctx_page.paginator.num_pages|add:"-4" }}</a></li>
+                    <li class="page-item"><a class="page-link link-div-center-div-content-table-tbody-and-pagination-action-pagination" data-url="{{ ctx_url }}?search={{ ctx_search }}&page={{ ctx_page.paginator.num_pages|add:"-3" }}">{{ ctx_page.paginator.num_pages|add:"-3" }}</a></li>
+                    <li class="page-item {% if ctx_page.number == ctx_page.paginator.num_pages|add:"-2" %}active{% endif %}"><a class="page-link link-div-center-div-content-table-tbody-and-pagination-action-pagination" data-url="{{ ctx_url }}?search={{ ctx_search }}&page={{ ctx_page.paginator.num_pages|add:"-2" }}">{{ ctx_page.paginator.num_pages|add:"-2" }}</a></li>
+                    <li class="page-item {% if ctx_page.number == ctx_page.paginator.num_pages|add:"-1" %}active{% endif %}"><a class="page-link link-div-center-div-content-table-tbody-and-pagination-action-pagination" data-url="{{ ctx_url }}?search={{ ctx_search }}&page={{ ctx_page.paginator.num_pages|add:"-1" }}">{{ ctx_page.paginator.num_pages|add:"-1" }}</a></li>
+                    <li class="page-item {% if ctx_page.number == ctx_page.paginator.num_pages %}active{% endif %}"><a class="page-link link-div-center-div-content-table-tbody-and-pagination-action-pagination" data-url="{{ ctx_url }}?search={{ ctx_search }}&page={{ ctx_page.paginator.num_pages }}">{{ ctx_page.paginator.num_pages }}</a></li>
+                {% else %}
+                    <li class="page-item"><a class="page-link link-div-center-div-content-table-tbody-and-pagination-action-pagination" data-url="{{ ctx_url }}?search={{ ctx_search }}&page=1">1</a></li>
+                    <li class="page-item disabled"><a class="page-link link-div-center-div-content-table-tbody-and-pagination-action-pagination" data-url="{{ ctx_url }}?search={{ ctx_search }}&page={{ ctx_page.number }}">...</a></li>
+                    <li class="page-item"><a class="page-link link-div-center-div-content-table-tbody-and-pagination-action-pagination" data-url="{{ ctx_url }}?search={{ ctx_search }}&page={{ ctx_page.number|add:"-1" }}">{{ ctx_page.number|add:"-1" }}</a></li>
+                    <li class="page-item active"><a class="page-link link-div-center-div-content-table-tbody-and-pagination-action-pagination" data-url="{{ ctx_url }}?search={{ ctx_search }}&page={{ ctx_page.number }}">{{ ctx_page.number }}</a></li>
+                    <li class="page-item"><a class="page-link link-div-center-div-content-table-tbody-and-pagination-action-pagination" data-url="{{ ctx_url }}?search={{ ctx_search }}&page={{ ctx_page.number|add:"1" }}">{{ ctx_page.number|add:"1" }}</a></li>
+                    <li class="page-item disabled"><a class="page-link link-div-center-div-content-table-tbody-and-pagination-action-pagination" data-url="{{ ctx_url }}?search={{ ctx_search }}&page={{ ctx_page.number }}">...</a></li>
+                    <li class="page-item"><a class="page-link link-div-center-div-content-table-tbody-and-pagination-action-pagination" data-url="{{ ctx_url }}?search={{ ctx_search }}&page={{ ctx_page.paginator.num_pages }}">{{ ctx_page.paginator.num_pages }}</a></li>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    </ul>
+{% endif %}

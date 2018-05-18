@@ -1,0 +1,35 @@
+<div class="form-group {% if ctx_field.errors %}has-error{% endif %}">
+    <label>{{ ctx_field.field.label }}:{% if ctx_field.field.required %} *{% endif %}</label>
+    <div id="field-table-{{ ctx_field.field.widget.attrs.id }}" class="field-table table-responsive">
+        <table class="table table-sm">
+            <tbody>
+                {% for ctx_instance_temporal in ctx_field_instances_choices %}
+                    <tr class="expanded jquerycheckboxselectmultiplecollapsibletreetable-{{ ctx_instance_temporal.pk }}{% if  ctx_instance_temporal.parent and ctx_instance_temporal.parent != 0 %} jquerycheckboxselectmultiplecollapsibletreetable-parent-{{ ctx_instance_temporal.parent }}{% endif %}">
+                        <td class="jquerycheckboxselectmultiplecollapsibletreetable-sortable">
+                            <label for="{{ ctx_field.field.widget.attrs.id }}_{{ forloop.counter0 }}">
+                                <input type="checkbox" id="{{ ctx_field.field.widget.attrs.id }}_{{ forloop.counter0 }}" name="{{ ctx_field.field.widget.attrs.id }}" value="{{ ctx_instance_temporal.pk }}" {% for ctx_value_index in ctx_field.value %}{% if ctx_instance_temporal.pk|safe == ctx_value_index|safe %}checked="checked"{% endif %}{% endfor %}/>
+                                {{ ctx_instance_temporal }}
+                            </label>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% if ctx_field.help_text %}
+        <p class="help-block text-justify">{{ ctx_field.help_text }}</p>
+    {% endif %}
+    {% if ctx_field.errors %}
+        <ul>
+            {% for ctx_error in ctx_field.errors %}
+                <li><i class="fa fa-hand-o-right"></i> {{ ctx_error|escape }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#field-table-{{ ctx_field.field.widget.attrs.id }} > table.table").jquerycheckboxselectmultiplecollapsibletreetable();
+    });
+</script>

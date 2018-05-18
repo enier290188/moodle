@@ -1,0 +1,94 @@
+{% load i18n security %}
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <form method="post" action="{% url "administration:module:security:localuser:update" pk=ctx_form.instance.pk %}" class="link-div-modal-action-update" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="modal-header d-flex flex-row justify-content-between">
+                <p class="modal-title align-self-center"><i class="fa fa-pencil"></i> {% trans "ADMINISTRATION_MODULE_ACTION_UPDATE" %} &OpenCurlyDoubleQuote;{% trans "ADMINISTRATION_MODULE_SECURITY_LOCALUSER" %}&CloseCurlyDoubleQuote;</p>
+                <button type="button" class="btn btn-sm btn-action btn-action-outline align-self-center link-div-modal-action-close" title="{% trans "ADMINISTRATION_MODULE_ACTION_CLOSE" %}"><i class="fa fa-close"></i></button>
+            </div>
+            <div class="modal-body">
+                <!-- Modal Menssage -->
+                <div class="modal-message"></div>
+                <!-- Modal Form Field -->
+                <div class="modal-form">
+                    {% with ctx_field=ctx_form.avatar ctx_form_errors=ctx_form.errors ctx_instance_current=ctx_form.instance_current ctx_instance=ctx_form.instance %}
+                        {% include "administration/_include_/div_modal/_include_/form/avatar/avatar.html" %}
+                    {% endwith %}
+
+                    <div class="divider-transparent"></div>
+                    {% with ctx_field=ctx_form.first_name %}
+                        {% include "administration/_include_/div_modal/_include_/form/textfield/textfield.html" %}
+                    {% endwith %}
+                    {% with ctx_field=ctx_form.last_name %}
+                        {% include "administration/_include_/div_modal/_include_/form/textfield/textfield.html" %}
+                    {% endwith %}
+
+                    <div class="divider-transparent"></div>
+                    {% with ctx_field=ctx_form.identifier %}
+                        {% include "administration/_include_/div_modal/_include_/form/textfield/textfield.html" %}
+                    {% endwith %}
+                    {% with ctx_field=ctx_form.email %}
+                        {% include "administration/_include_/div_modal/_include_/form/textfield/textfield.html" %}
+                    {% endwith %}
+                    {% with ctx_field=ctx_form.password %}
+                        {% include "administration/_include_/div_modal/_include_/form/textfield/textfield.html" %}
+                    {% endwith %}
+                    {% with ctx_field=ctx_form.password_confirmation %}
+                        {% include "administration/_include_/div_modal/_include_/form/textfield/textfield.html" %}
+                    {% endwith %}
+
+                    <div class="divider-transparent"></div>
+                    {% with ctx_field=ctx_form.detail %}
+                        {% include "administration/_include_/div_modal/_include_/form/textarea/textarea.html" %}
+                    {% endwith %}
+
+                    {% if ctx_form.groups_choices %}
+                        <div class="divider-transparent"></div>
+                        {% with ctx_field=ctx_form.groups ctx_field_instances_choices=ctx_form.groups_choices %}
+                            {% include "administration/_include_/div_modal/_include_/form/checkbox/checkboxselectmultipletree.html" %}
+                        {% endwith %}
+                    {% endif %}
+
+                    {% if ctx_form.permissions_choices %}
+                        <div class="divider-transparent"></div>
+                        {% with ctx_field=ctx_form.permissions ctx_field_instances_choices=ctx_form.permissions_choices %}
+                            {% include "administration/_include_/div_modal/_include_/form/checkbox/checkboxselectmultipletree.html" %}
+                        {% endwith %}
+                    {% endif %}
+
+                    <div class="divider-transparent"></div>
+                    {% with ctx_field=ctx_form.is_active %}
+                        {% include "administration/_include_/div_modal/_include_/form/checkbox/checkbox.html" %}
+                    {% endwith %}
+                </div>
+            </div>
+            <div class="modal-footer d-flex flex-row justify-content-between">
+                <div>
+                    <button type="submit" class="btn btn-sm btn-action btn-action-bg" title="{% trans "ADMINISTRATION_MODULE_ACTION_UPDATE" %}">
+                        <i class="fa fa-pencil"></i> {% trans "ADMINISTRATION_MODULE_ACTION_UPDATE" %}
+                    </button>
+                    <button type="button" class="btn btn-sm btn-action btn-action-outline link-div-modal-action-refresh" data-url="{% url "administration:module:security:localuser:update" pk=ctx_form.instance.pk %}" title="{% trans "ADMINISTRATION_MODULE_ACTION_REFRESH" %}">
+                        <i class="fa fa-refresh"></i> <span class="d-none d-md-inline-block">{% trans "ADMINISTRATION_MODULE_ACTION_REFRESH" %}</span>
+                    </button>
+                    <button type="button" class="btn btn-sm btn-action btn-action-outline link-div-modal-action-close" title="{% trans "ADMINISTRATION_MODULE_ACTION_CLOSE" %}">
+                        <i class="fa fa-close"></i> <span class="d-none d-md-inline-block">{% trans "ADMINISTRATION_MODULE_ACTION_CLOSE" %}</span>
+                    </button>
+                </div>
+                <div>
+                    {% if request|boolean___has_permission_security_user:"security_localuser_detail" %}
+                        <button type="button" class="btn btn-sm btn-action btn-action-outline link-div-modal-reload" data-url="{% url "administration:module:security:localuser:detail" pk=ctx_form.instance.pk %}" title="{% trans "ADMINISTRATION_MODULE_ACTION_DETAIL" %}">
+                            <i class="fa fa-eye"></i> <span class="d-none d-md-inline-block">{% trans "ADMINISTRATION_MODULE_ACTION_DETAIL" %}</span>
+                        </button>
+                    {% endif %}
+                    {% if request|boolean___has_permission_security_user:"security_localuser_delete" %}
+                        <button type="button" class="btn btn-sm btn-action btn-action-outline link-div-modal-reload" data-url="{% url "administration:module:security:localuser:delete" pk=ctx_form.instance.pk %}" title="{% trans "ADMINISTRATION_MODULE_ACTION_DELETE" %}">
+                            <i class="fa fa-trash"></i> <span class="d-none d-md-inline-block">{% trans "ADMINISTRATION_MODULE_ACTION_DELETE" %}</span>
+                        </button>
+                    {% endif %}
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

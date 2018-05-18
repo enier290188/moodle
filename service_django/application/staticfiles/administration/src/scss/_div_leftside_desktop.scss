@@ -1,0 +1,15 @@
+@import "variables";
+
+#div-leftside {
+  top: $div-header-height;
+  right: auto;
+  bottom: 0;
+  left: 0;
+  width: $div-leftside-width;
+  z-index: 1034;
+  border-right: 1px solid $color-border;
+
+  &.collapse {
+    display: inherit;
+  }
+}

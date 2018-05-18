@@ -1,0 +1,61 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+
+
+
+msgid "ADMINISTRATION_MODULE_DOCUMENTATION_DOCUMENTS"
+msgstr "Documents"
+
+msgid "ADMINISTRATION_MODULE_DOCUMENTATION_DOCUMENT"
+msgstr "Document"
+
+msgid "ADMINISTRATION_MODULE_DOCUMENTATION_DOCUMENT_TABLE_TITLE"
+msgstr "Title"
+
+msgid "ADMINISTRATION_MODULE_DOCUMENTATION_DOCUMENT_TABLE_IS_ACTIVE"
+msgstr "Is active"
+
+
+
+msgid "ADMINISTRATION_MODULE_DOCUMENTATION_DOCUMENT_LOCALE_EN"
+msgstr "English"
+
+msgid "ADMINISTRATION_MODULE_DOCUMENTATION_DOCUMENT_LOCALE_ES"
+msgstr "Spanish"
+
+
+
+msgid "ADMINISTRATION_MODULE_DOCUMENTATION_DOCUMENT_ID"
+msgstr "ID"
+
+msgid "ADMINISTRATION_MODULE_DOCUMENTATION_DOCUMENT_IS_ACTIVE"
+msgstr "Is active"
+msgid "ADMINISTRATION_MODULE_DOCUMENTATION_DOCUMENT_IS_ACTIVE_HELP_TEXT"
+msgstr "Indicates whether this instance should be treated as active. Disable this option instead of deleting it."
+
+msgid "ADMINISTRATION_MODULE_DOCUMENTATION_DOCUMENT_CREATED"
+msgstr "Created"
+
+msgid "ADMINISTRATION_MODULE_DOCUMENTATION_DOCUMENT_MODIFIED"
+msgstr "Modified"
+
+msgid "ADMINISTRATION_MODULE_DOCUMENTATION_DOCUMENT_TITLE"
+msgstr "Title"
+
+msgid "ADMINISTRATION_MODULE_DOCUMENTATION_DOCUMENT_CONTENT"
+msgstr "Content"
+
+
+
+msgid "ADMINISTRATION_MODULE_DOCUMENTATION_DOCUMENT_VALIDATION This instance is a branch of a non-active instance, so it can not be activated."
+msgstr "This instance is a branch of a non-active instance, so it can not be activated."
+
+msgid "ADMINISTRATION_MODULE_DOCUMENTATION_DOCUMENT_VALIDATION There are instances that are branches of this instance, so it can not be deleted."
+msgstr "There are instances that are branches of this instance, so it can not be deleted."
+
+msgid "ADMINISTRATION_MODULE_DOCUMENTATION_DOCUMENT_VALIDATION Only letters, numbers and special characters dot, -, _ and space."
+msgstr "Only letters, numbers and special characters dot, -, _ and space."

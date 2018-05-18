@@ -1,0 +1,4 @@
+{% if ctx_title and ctx_content %}
+    <h4>{{ ctx_title }}</h4>
+    {{ ctx_content|safe }}
+{% endif %}

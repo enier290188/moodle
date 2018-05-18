@@ -1,0 +1,26 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+
+
+
+msgid "ADMINISTRATION_DIV_HEADER_BRAND"
+msgstr "MOODLE"
+
+msgid "ADMINISTRATION_DIV_HEADER_UL_LEFT_HOME"
+msgstr "Inicio"
+
+msgid "ADMINISTRATION_DIV_HEADER_UL_LEFT_ADMINISTRATION"
+msgstr "Administración"
+
+msgid "ADMINISTRATION_DIV_HEADER_UL_RIGHT_USER_LOGIN"
+msgstr "Iniciar sesión"
+
+msgid "ADMINISTRATION_DIV_HEADER_UL_RIGHT_USER_PROFILE"
+msgstr "Perfil"
+
+msgid "ADMINISTRATION_DIV_HEADER_UL_RIGHT_USER_LOGOUT"
+msgstr "Cerrar sesión"

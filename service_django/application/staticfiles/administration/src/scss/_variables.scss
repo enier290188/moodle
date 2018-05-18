@@ -1,0 +1,33 @@
+// The Bootstrap grid system work across multiple devices
+// Extra small devices (portrait phones, less than 576px)
+$device-extra-small: "(max-width: 575px)";
+// Small devices (landscape phones, 576px and up)
+$device-small: "(min-width: 576px) and (max-width: 767px)";
+// Medium devices (tablets, 768px and up)
+$device-medium: "(min-width: 768px) and (max-width: 991px)";
+// Large devices (desktops, 992px and up)
+$device-large: "(min-width: 992px) and (max-width: 1199px)";
+// Extra large devices (large desktops, 1200px and up)
+$device-extra-large: "(min-width: 1200px)";
+//
+// Colors
+$color-body: #f7f7f7;
+$color-primary: #2a3f54;
+$color-secondary: #ededed;
+$color-light: #ffffff;
+$color-dark: #000000;
+$color-border: #d9dee4;
+$color-text: #73879c;
+$color-shadow: transparentize(#ffffff, 0.5);
+//
+$color-success: #28a745;
+$color-info: #17a2b8;
+$color-warning: #ffc107;
+$color-danger: #dc3545;
+//
+// Vars
+// div-header
+$div-header-height: 40px;
+//
+// div-leftside
+$div-leftside-width: 280px;

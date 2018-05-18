@@ -1,0 +1,32 @@
+@import "variables";
+@import "normalize";
+
+body {
+  background-color: $color-body;
+  color: $color-text;
+
+  @import "div_header";
+  @import "div_leftside";
+  @import "div_center";
+  @import "div_modal";
+
+  @media #{$device-extra-small}, #{$device-small}{
+    @import "div_header_phone";
+    @import "div_leftside_phone";
+    @import "div_center_phone";
+    @import "div_modal_phone";
+  }
+
+  @media #{$device-medium}, #{$device-large}, #{$device-extra-large}{
+    @import "div_header_desktop";
+    @import "div_leftside_desktop";
+    @import "div_center_desktop";
+    @import "div_modal_desktop";
+  }
+
+  &.modal-open {
+    #div-leftside, main {
+      overflow: hidden;
+    }
+  }
+}

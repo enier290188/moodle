@@ -1,0 +1,42 @@
+@import "../../../variables";
+
+#div-content-documentation-documentation {
+  #div-content-documentation-documentation-tree {
+    margin: 0;
+    padding: 8px 4px;
+    background-color: $color-border;
+
+    .table-responsive {
+      table {
+        margin-bottom: 0;
+        border: none;
+
+        tr {
+          border: none;
+
+          td {
+            padding: 0;
+            border: none;
+
+            .btn.btn-link {
+              display: inline-block;
+              padding: 0;
+              color: $color-primary;
+              text-align: left;
+
+              &.active {
+                font-weight: bolder;
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #div-content-documentation-documentation-content {
+    margin: 0;
+    padding: 4px;
+  }
+}

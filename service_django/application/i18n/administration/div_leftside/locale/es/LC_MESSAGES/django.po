@@ -1,0 +1,41 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+
+
+
+msgid "ADMINISTRATION_DIV_LEFTSIDE_NAV_SECURITY"
+msgstr "Seguridad"
+
+msgid "ADMINISTRATION_DIV_LEFTSIDE_NAV_SECURITY_LOCAL"
+msgstr "LOCAL"
+
+msgid "ADMINISTRATION_DIV_LEFTSIDE_NAV_SECURITY_LOCAL_REQUESTEDUSERS"
+msgstr "Solicitudes de Usuario"
+
+msgid "ADMINISTRATION_DIV_LEFTSIDE_NAV_SECURITY_LOCAL_USERS"
+msgstr "Usuarios"
+
+msgid "ADMINISTRATION_DIV_LEFTSIDE_NAV_SECURITY_LDAP"
+msgstr "LDAP"
+
+msgid "ADMINISTRATION_DIV_LEFTSIDE_NAV_SECURITY_LDAP_REQUESTEDUSERS"
+msgstr "Solicitudes de Usuario"
+
+msgid "ADMINISTRATION_DIV_LEFTSIDE_NAV_SECURITY_LDAP_USERS"
+msgstr "Usuarios"
+
+msgid "ADMINISTRATION_DIV_LEFTSIDE_NAV_SECURITY_GROUPS"
+msgstr "Grupos"
+
+msgid "ADMINISTRATION_DIV_LEFTSIDE_NAV_SECURITY_PERMISSIONS"
+msgstr "Permisos"
+
+msgid "ADMINISTRATION_DIV_LEFTSIDE_NAV_DOCUMENTATION"
+msgstr "Documentación"
+
+msgid "ADMINISTRATION_DIV_LEFTSIDE_NAV_DOCUMENTATION_DOCUMENTS"
+msgstr "Documentos"

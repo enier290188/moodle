@@ -1,0 +1,18 @@
+@import "variables";
+
+#div-center {
+  top: $div-header-height;
+  right: 0;
+  bottom: 0;
+  left: $div-leftside-width;
+  width: auto;
+  height: auto;
+  z-index: 1033;
+  background-color: $color-body;
+
+  #div-content {
+    margin: 4px;
+    padding: 8px;
+    border: 1px solid $color-border;
+  }
+}

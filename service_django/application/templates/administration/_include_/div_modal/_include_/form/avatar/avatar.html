@@ -1,0 +1,77 @@
+{% load i18n security static %}
+
+<div class="form-group {% if ctx_field.errors %}has-error{% endif %}">
+    <label for="{{ ctx_field.field.widget.attrs.id }}">{{ ctx_field.field.label }}:{% if ctx_field.field.required %} *{% endif %}</label>
+    {{ ctx_field }}
+    <div class="field-avatar d-flex flex-row justify-content-start">
+        <div class="image">
+            <img id="{{ ctx_field.field.widget.attrs.id_image_upload }}"
+                 src="
+                 {% if ctx_instance_current.avatar %}
+                    {% if ctx_instance_current.avatar == ctx_instance.avatar %}
+                        {{ ctx_instance_current|string___security_user_by_instance_avatar_url }}
+                    {% else %}
+                        {% if ctx_instance_current.identifier == ctx_instance.identifier %}
+                            {{ ctx_instance_current|string___security_user_by_instance_avatar_url }}
+                        {% else %}
+                            {% if ctx_form_errors %}
+                                {{ ctx_instance_current|string___security_user_by_instance_avatar_url }}
+                            {% else %}
+                                {{ ctx_instance|string___security_user_by_instance_avatar_url }}
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                 {% else %}
+                    {% if ctx_instance.avatar %}
+                        {% if ctx_form_errors %}
+                            {{ None|string___security_user_by_instance_avatar_url }}
+                        {% else %}
+                            {{ ctx_instance|string___security_user_by_instance_avatar_url }}
+                        {% endif %}
+                    {% else %}
+                        {{ None|string___security_user_by_instance_avatar_url }}
+                    {% endif %}
+                {% endif %}
+                "/>
+        </div>
+        <div class="button align-self-end">
+            <button type="button" id="{{ ctx_field.field.widget.attrs.id_button_upload }}" class="btn btn-sm btn-action btn-action-outline"><i class="fa fa-upload"></i> {% trans "SECURITY_ACTION_UPLOAD" %}</button>
+        </div>
+    </div>
+    {% if ctx_field.help_text %}
+        <p class="help-block text-justify">{{ ctx_field.help_text }}</p>
+    {% endif %}
+    {% if ctx_field.errors %}
+        <ul>
+            {% for ctx_error in ctx_field.errors %}
+                <li><i class="fa fa-hand-o-right"></i> {{ ctx_error|escape }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+
+<script>
+    $(document).ready(function () {
+        let $identifierAvatar = $(".form-group #{{ ctx_field.field.widget.attrs.id }}");
+        let $identifierFieldAvatarImageUpload = $(".form-group .field-avatar #{{ ctx_field.field.widget.attrs.id_image_upload }}");
+        let $identifierFieldAvatarButtonUpload = $(".form-group .field-avatar #{{ ctx_field.field.widget.attrs.id_button_upload }}");
+
+        $identifierFieldAvatarButtonUpload.click(function () {
+            $identifierAvatar.click();
+        });
+
+        function avatarRELOAD(input) {
+            if (input.files && input.files[0]) {
+                let reader = new FileReader();
+                reader.onload = function (e) {
+                    $identifierFieldAvatarImageUpload.attr("src", e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $identifierAvatar.change(function () {
+            avatarRELOAD(this);
+        });
+    });
+</script>

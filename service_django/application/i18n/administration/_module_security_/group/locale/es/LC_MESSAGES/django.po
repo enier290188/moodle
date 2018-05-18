@@ -1,0 +1,56 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+
+
+
+msgid "ADMINISTRATION_MODULE_SECURITY_GROUPS"
+msgstr "Grupos"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_GROUP"
+msgstr "Grupo"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_GROUP_TABLE_NAME"
+msgstr "Nombre"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_GROUP_TABLE_IS_ACTIVE"
+msgstr "Es activo"
+
+
+
+msgid "ADMINISTRATION_MODULE_SECURITY_GROUP_ID"
+msgstr "ID"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_GROUP_IS_ACTIVE"
+msgstr "Es activo"
+msgid "ADMINISTRATION_MODULE_SECURITY_GROUP_IS_ACTIVE_HELP_TEXT"
+msgstr "Indica si esta instancia debe tratarse como activa. Desactive esta opción en lugar de eliminarla."
+
+msgid "ADMINISTRATION_MODULE_SECURITY_GROUP_CREATED"
+msgstr "Creado"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_GROUP_MODIFIED"
+msgstr "Modificado"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_GROUP_NAME"
+msgstr "Nombre"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_GROUP_PERMISSIONS"
+msgstr "Permisos"
+
+
+
+msgid "ADMINISTRATION_MODULE_SECURITY_GROUP_VALIDATION This instance is a branch of a non-active instance, so it can not be activated."
+msgstr "Esta instancia es una rama de una instancia no activa, por lo que no se puede activar."
+
+msgid "ADMINISTRATION_MODULE_SECURITY_GROUP_VALIDATION There are instances that are branches of this instance, so it can not be deleted."
+msgstr "Hay instancias que son ramas de esta instancia, por lo que no se puede eliminar."
+
+msgid "ADMINISTRATION_MODULE_SECURITY_GROUP_VALIDATION Only letters, numbers and special characters dot, -, _ and space."
+msgstr "Sólo letras, números y los carácteres especiales punto, - , _ y espacio."
+
+msgid "ADMINISTRATION_MODULE_SECURITY_GROUP_VALIDATION This name has already been chosen."
+msgstr "Este nombre ya ha sido elegido."

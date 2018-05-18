@@ -1,0 +1,17 @@
+@import "../variables";
+
+.form-group {
+  margin: 0;
+  padding: 0;
+
+  .input-group {
+    .form-control {
+      border-color: $color-border;
+      color: $color-text;
+
+      &:focus {
+        box-shadow: 0 0 0 0.2rem $color-border;
+      }
+    }
+  }
+}

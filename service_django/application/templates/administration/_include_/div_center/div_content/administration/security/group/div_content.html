@@ -1,0 +1,23 @@
+{% load i18n security %}
+
+<header id="div-content-header" class="d-flex flex-row justify-content-between">
+    <h4 class="align-self-center"><i class="fa fa-list-ol"></i> {% trans "ADMINISTRATION_MODULE_SECURITY_GROUPS" %}</h4>
+    <button data-url="{% url "administration:module:security:group:table_tbody_and_pagination_reload" %}" class="btn btn-sm btn-action btn-action-outline align-self-center link-div-center-div-content-table-tbody-and-pagination-action-refresh" title="{% trans "ADMINISTRATION_MODULE_ACTION_REFRESH" %}"><i class="fa fa-refresh"></i><span class="d-none d-md-inline"> {% trans "ADMINISTRATION_MODULE_ACTION_REFRESH" %}</span></button>
+</header>
+
+<div id="div-content-table" class="table-responsive">
+    <table class="table table-sm table-hover table-list" data-url="{% url "administration:module:security:group:table_tbody_and_pagination_tree_reload" %}">
+        <thead>
+            <tr>
+                <th scope="col">
+                    {% if request|boolean___has_permission_security_user:"security_group_create" %}
+                        <button data-url="{% url "administration:module:security:group:create" %}" class="btn btn-sm btn-action btn-action-outline link-div-modal-reload" title="{% trans "ADMINISTRATION_MODULE_ACTION_CREATE" %}"><i class="fa fa-plus"></i></button>
+                    {% endif %}
+                </th>
+                <th scope="col" class="th-name">{% trans "ADMINISTRATION_MODULE_SECURITY_GROUP_TABLE_NAME" %}</th>
+                <th scope="col" class="th-is-active">{% trans "ADMINISTRATION_MODULE_SECURITY_GROUP_TABLE_IS_ACTIVE" %}</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>

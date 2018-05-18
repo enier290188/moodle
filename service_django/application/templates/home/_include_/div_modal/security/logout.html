@@ -1,0 +1,42 @@
+{% load i18n security %}
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <form method="post" action="{% url "home:logout" %}" class="link-div-modal-action-logout">
+            {% csrf_token %}
+            <div class="modal-header d-flex flex-row justify-content-between">
+                <p class="modal-title align-self-center"><i class="fa fa-sign-out"></i> {% trans "SECURITY_LOGOUT" %}</p>
+                <button type="button" class="btn btn-sm btn-action btn-action-outline align-self-center link-div-modal-action-close" title="{% trans "SECURITY_ACTION_CLOSE" %}"><i class="fa fa-close"></i></button>
+            </div>
+            <div class="modal-body">
+                <!-- Modal Menssage -->
+                <div class="modal-message"></div>
+                <!-- Modal Form Field -->
+                <div class="modal-form">
+                    <div class="form-group">
+                        <div class="field-avatar d-flex flex-row justify-content-center">
+                            <div class="image">
+                                <img src="{{ request|string___security_user_avatar_url }}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="m-0 p-0 text-center"><strong>&OpenCurlyDoubleQuote;{{ request|instance___security_user }}&CloseCurlyDoubleQuote;</strong></p>
+                    <p class="m-0 p-0 text-center">{% trans "SECURITY_LOGOUT_QUESTION Are you sure you want to logout?" %}</p>
+                </div>
+            </div>
+            <div class="modal-footer d-flex flex-row justify-content-between">
+                <div>
+                    <button type="submit" class="btn btn-sm btn-action btn-action-bg" title="{% trans "SECURITY_ACTION_LOGOUT" %}">
+                        <i class="fa fa-sign-out"></i> {% trans "SECURITY_ACTION_LOGOUT" %}
+                    </button>
+                    <button type="button" class="btn btn-sm btn-action btn-action-outline link-div-modal-action-refresh" data-url="{% url "home:logout" %}" title="{% trans "SECURITY_ACTION_REFRESH" %}">
+                        <i class="fa fa-refresh"></i> <span class="d-none d-md-inline-block">{% trans "SECURITY_ACTION_REFRESH" %}</span>
+                    </button>
+                    <button type="button" class="btn btn-sm btn-action btn-action-outline link-div-modal-action-close" title="{% trans "SECURITY_ACTION_CLOSE" %}">
+                        <i class="fa fa-close"></i> <span class="d-none d-md-inline-block">{% trans "SECURITY_ACTION_CLOSE" %}</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

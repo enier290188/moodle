@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+
+
+
+msgid "ADMINISTRATION_MODULE_ACTION_REFRESH"
+msgstr "Refrescar"
+
+msgid "ADMINISTRATION_MODULE_ACTION_CLOSE"
+msgstr "Cerrar"
+
+msgid "ADMINISTRATION_MODULE_ACTION_CREATE"
+msgstr "Crear"
+
+msgid "ADMINISTRATION_MODULE_ACTION_CREATE_UPDATE"
+msgstr "Crear y Modificar"
+
+msgid "ADMINISTRATION_MODULE_ACTION_DETAIL"
+msgstr "Detallar"
+
+msgid "ADMINISTRATION_MODULE_ACTION_UPDATE"
+msgstr "Modificar"
+
+msgid "ADMINISTRATION_MODULE_ACTION_DELETE"
+msgstr "Eliminar"
+
+msgid "ADMINISTRATION_MODULE_ACTION_APPROVE"
+msgstr "Aprobar"
+
+msgid "ADMINISTRATION_MODULE_ACTION_DISAPPROVE"
+msgstr "Desaprobar"
+
+msgid "ADMINISTRATION_MODULE_ACTION_SEARCH"
+msgstr "Buscar"
+
+msgid "ADMINISTRATION_MODULE_ACTION_UPLOAD"
+msgstr "Subir"
+
+
+
+msgid "ADMINISTRATION_MODULE_OPTION_NOT_FOUND"
+msgstr "No encontrado"
+
+msgid "ADMINISTRATION_MODULE_OPTION_ATTRIBUTE"
+msgstr "Atributo"
+
+msgid "ADMINISTRATION_MODULE_OPTION_VALUE"
+msgstr "Valor"
+
+msgid "ADMINISTRATION_MODULE_OPTION_YES"
+msgstr "si"
+
+msgid "ADMINISTRATION_MODULE_OPTION_NO"
+msgstr "no"
+
+
+
+msgid "ADMINISTRATION_MODULE_VALIDATION Action not performed, maximum number of possible instances is %(maximum_number)s."
+msgstr "Acción no realizada, el número máximo de posibles instancias es %(maximum_number)s."
+
+
+
+msgid "ADMINISTRATION_MODULE_QUESTION Are you sure you want to delete it?"
+msgstr "¿Usted está seguro que quiere eliminarlo?"
+
+msgid "ADMINISTRATION_MODULE_QUESTION Are you sure you want to approve it?"
+msgstr "¿Usted está seguro que quiere aprobarlo?"
+
+msgid "ADMINISTRATION_MODULE_QUESTION Are you sure you want to disapprove it?"
+msgstr "¿Usted está seguro que quiere desaprobarlo?"
+
+
+
+msgid "ADMINISTRATION_MODULE_MESSAGE %(instance)s was successfully created."
+msgstr "<strong>&OpenCurlyDoubleQuote;%(instance)s&CloseCurlyDoubleQuote;</strong> se ha creado correctamente."
+
+msgid "ADMINISTRATION_MODULE_MESSAGE %(instance)s was successfully updated."
+msgstr "<strong>&OpenCurlyDoubleQuote;%(instance)s&CloseCurlyDoubleQuote;</strong> se ha modificado correctamente."
+
+msgid "ADMINISTRATION_MODULE_MESSAGE %(instance)s was successfully deleted."
+msgstr "<strong>&OpenCurlyDoubleQuote;%(instance)s&CloseCurlyDoubleQuote;</strong> se ha borrado correctamente."
+
+msgid "ADMINISTRATION_MODULE_MESSAGE %(instance)s was successfully approved."
+msgstr "<strong>&OpenCurlyDoubleQuote;%(instance)s&CloseCurlyDoubleQuote;</strong> se ha aprobado correctamente."
+
+msgid "ADMINISTRATION_MODULE_MESSAGE %(instance)s was successfully disapproved."
+msgstr "<strong>&OpenCurlyDoubleQuote;%(instance)s&CloseCurlyDoubleQuote;</strong> se ha desaprobado correctamente."
+
+msgid "ADMINISTRATION_MODULE_MESSAGE ERROR."
+msgstr "ERROR."

@@ -1,0 +1,47 @@
+{% load i18n security %}
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <form method="post" action="{% url "administration:module:security:requestedldapuser:approve" pk=ctx_form.instance.pk %}" class="link-div-modal-action-approve">
+            {% csrf_token %}
+            <div class="modal-header d-flex flex-row justify-content-between">
+                <p class="modal-title align-self-center"><i class="fa fa-user-plus"></i> {% trans "ADMINISTRATION_MODULE_ACTION_APPROVE" %} &OpenCurlyDoubleQuote;{% trans "ADMINISTRATION_MODULE_SECURITY_REQUESTEDLDAPUSER" %}&CloseCurlyDoubleQuote;</p>
+                <button type="button" class="btn btn-sm btn-action btn-action-outline align-self-center link-div-modal-action-close" title="{% trans "ADMINISTRATION_MODULE_ACTION_CLOSE" %}"><i class="fa fa-close"></i></button>
+            </div>
+            <div class="modal-body">
+                <!-- Modal Menssage -->
+                <div class="modal-message"></div>
+                <!-- Modal Form Field -->
+                <div class="modal-form">
+                    <p class="m-0 p-0 text-center"><strong>&OpenCurlyDoubleQuote;{{ ctx_form.instance }}&CloseCurlyDoubleQuote;</strong></p>
+                    <p class="m-0 p-0 text-center">{% trans "ADMINISTRATION_MODULE_QUESTION Are you sure you want to approve it?" %}</p>
+                </div>
+            </div>
+            <div class="modal-footer d-flex flex-row justify-content-between">
+                <div>
+                    <button type="submit" class="btn btn-sm btn-action btn-action-bg" title="{% trans "ADMINISTRATION_MODULE_ACTION_APPROVE" %}">
+                        <i class="fa fa-user-plus"></i> {% trans "ADMINISTRATION_MODULE_ACTION_APPROVE" %}
+                    </button>
+                    <button type="button" class="btn btn-sm btn-action btn-action-outline link-div-modal-action-refresh" data-url="{% url "administration:module:security:requestedldapuser:approve" pk=ctx_form.instance.pk %}" title="{% trans "ADMINISTRATION_MODULE_ACTION_REFRESH" %}">
+                        <i class="fa fa-refresh"></i> <span class="d-none d-md-inline-block">{% trans "ADMINISTRATION_MODULE_ACTION_REFRESH" %}</span>
+                    </button>
+                    <button type="button" class="btn btn-sm btn-action btn-action-outline link-div-modal-action-close" title="{% trans "ADMINISTRATION_MODULE_ACTION_CLOSE" %}">
+                        <i class="fa fa-close"></i> <span class="d-none d-md-inline-block">{% trans "ADMINISTRATION_MODULE_ACTION_CLOSE" %}</span>
+                    </button>
+                </div>
+                <div>
+                    {% if request|boolean___has_permission_security_user:"security_requestedldapuser_detail" %}
+                        <button type="button" class="btn btn-sm btn-action btn-action-outline link-div-modal-reload" data-url="{% url "administration:module:security:requestedldapuser:detail" pk=ctx_form.instance.pk %}" title="{% trans "ADMINISTRATION_MODULE_ACTION_DETAIL" %}">
+                            <i class="fa fa-eye"></i> <span class="d-none d-md-inline-block">{% trans "ADMINISTRATION_MODULE_ACTION_DETAIL" %}</span>
+                        </button>
+                    {% endif %}
+                    {% if request|boolean___has_permission_security_user:"security_requestedldapuser_disapprove" %}
+                        <button type="button" class="btn btn-sm btn-action btn-action-outline link-div-modal-reload" data-url="{% url "administration:module:security:requestedldapuser:disapprove" pk=ctx_form.instance.pk %}" title="{% trans "ADMINISTRATION_MODULE_ACTION_DISAPPROVE" %}">
+                            <i class="fa fa-user-times"></i> <span class="d-none d-md-inline-block">{% trans "ADMINISTRATION_MODULE_ACTION_DISAPPROVE" %}</span>
+                        </button>
+                    {% endif %}
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

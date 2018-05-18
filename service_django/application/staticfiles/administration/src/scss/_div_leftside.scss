@@ -1,0 +1,129 @@
+@import "variables";
+
+#div-leftside {
+  position: fixed;
+  overflow: auto;
+  background-color: $color-secondary;
+  color: $color-text;
+
+  #div-leftside-user {
+    img.avatar {
+      width: 60px;
+      height: 60px;
+      margin: 8px 0 0 8px;
+      padding: 2px;
+      border: 1px solid $color-border;
+      background-color: $color-light;
+    }
+
+    p.data {
+      margin: 23px 8px 0 0;
+      padding: 0 0 0 2px;
+      border-bottom: 1px solid $color-border;
+      color: $color-text;
+    }
+  }
+
+  #div-leftside-nav {
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      > .nav-item {
+        width: 100%;
+
+        > .nav-link {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: nowrap;
+          margin: 0;
+          padding: 4px;
+          color: $color-primary;
+          cursor: pointer;
+          transition: all 0.2s ease-in-out;
+
+          &::after {
+            display: inline-block;
+            width: 16px;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            vertical-align: middle;
+            font: normal normal normal 14px/1 FontAwesome;
+            text-align: center;
+            text-rendering: auto;
+          }
+
+          &[aria-expanded="false"]::after {
+            content: "\f104";
+          }
+
+          &[aria-expanded="true"]::after {
+            content: "\f107";
+          }
+
+          &:hover {
+            background-color: $color-border;
+            color: $color-primary;
+          }
+
+          &.active {
+            background-color: $color-primary;
+            color: $color-light;
+          }
+        }
+      }
+
+      &.level-0 {
+        > .nav-item {
+          > .nav-link {
+            padding-left: 8px;
+          }
+        }
+      }
+
+      &.level-1 {
+        > .nav-item {
+          > .nav-link {
+            padding-left: 24px;
+          }
+        }
+      }
+
+      &.level-2 {
+        > .nav-item {
+          > .nav-link {
+            padding-left: 40px;
+          }
+        }
+      }
+
+      &.level-3 {
+        > .nav-item {
+          > .nav-link {
+            padding-left: 56px;
+          }
+        }
+      }
+
+      &.level-4 {
+        > .nav-item {
+          > .nav-link {
+            padding-left: 72px;
+          }
+        }
+      }
+
+      &.level-5 {
+        > .nav-item {
+          > .nav-link {
+            padding-left: 88px;
+          }
+        }
+      }
+    }
+  }
+}

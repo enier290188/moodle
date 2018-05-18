@@ -1,0 +1,27 @@
+{% load i18n security %}
+
+<header id="div-content-header" class="d-flex flex-row justify-content-between">
+    <h4 class="align-self-center"><i class="fa fa-list-ol"></i> {% trans "ADMINISTRATION_MODULE_SECURITY_REQUESTEDLDAPUSERS" %}</h4>
+    <button data-url="{% url "administration:module:security:requestedldapuser:table_tbody_and_pagination_reload" %}" class="btn btn-sm btn-action btn-action-outline align-self-center link-div-center-div-content-table-tbody-and-pagination-action-refresh" title="{% trans "ADMINISTRATION_MODULE_ACTION_REFRESH" %}"><i class="fa fa-refresh"></i><span class="d-none d-md-inline"> {% trans "ADMINISTRATION_MODULE_ACTION_REFRESH" %}</span></button>
+</header>
+
+<div id="div-content-search">
+    {% url "administration:module:security:requestedldapuser:table_tbody_and_pagination_reload" as ctx_url %}
+    {% with ctx_url=ctx_url %}{% include "administration/_include_/div_center/div_content/administration/_include_/search.html" %}{% endwith %}
+</div>
+
+<div id="div-content-table" class="table-responsive">
+    <table class="table table-sm table-hover table-list">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col" class="th-name">{% trans "ADMINISTRATION_MODULE_SECURITY_REQUESTEDLDAPUSER_TABLE_NAME" %}</th>
+                <th scope="col" class="th-identifier-normal">{% trans "ADMINISTRATION_MODULE_SECURITY_REQUESTEDLDAPUSER_TABLE_IDENTIFIER" %}</th>
+                <th scope="col" class="th-email">{% trans "ADMINISTRATION_MODULE_SECURITY_REQUESTEDLDAPUSER_TABLE_EMAIL" %}</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<div id="div-content-pagination"></div>

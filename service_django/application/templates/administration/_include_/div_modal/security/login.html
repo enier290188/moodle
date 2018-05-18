@@ -1,0 +1,90 @@
+{% load i18n %}
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header d-flex flex-row justify-content-between">
+            <p class="modal-title align-self-center"><i class="fa fa-sign-in"></i> {% trans "SECURITY_LOGIN" %}</p>
+            <button type="button" class="btn btn-sm btn-action btn-action-outline align-self-center link-div-modal-action-close" title="{% trans "SECURITY_ACTION_CLOSE" %}"><i class="fa fa-close"></i></button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-tab">
+                <nav>
+                    <div id="tabs" class="nav nav-tabs" role="tablist">
+                        <a id="tab-ldap" class="nav-item nav-link {% if ctx_tab_ldapuserlogin %}active{% endif %} {% if ctx_form_ldapuserlogin.ldap_identifier.errors or ctx_form_ldapuserlogin.ldap_password.errors %}has-error{% endif %}" aria-selected="{% if ctx_tab_ldapuserlogin %}true{% else %}false{% endif %}" aria-controls="content-ldap" href="#content-ldap" data-toggle="tab" role="tab">{% trans "SECURITY_LOGIN_MODEL_LDAPUSER" %}</a>
+                        <a id="tab-local" class="nav-item nav-link {% if ctx_tab_localuserlogin %}active{% endif %} {% if ctx_form_localuserlogin.local_identifier.errors or ctx_form_localuserlogin.local_password.errors %}has-error{% endif %}" aria-selected="{% if ctx_tab_localuserlogin %}true{% else %}false{% endif %}" aria-controls="content-local" href="#content-local" data-toggle="tab" role="tab">{% trans "SECURITY_LOGIN_MODEL_LOCALUSER" %}</a>
+                    </div>
+                </nav>
+                <div id="contents" class="tab-content">
+                    <div id="content-ldap" class="tab-pane fade {% if ctx_tab_ldapuserlogin %}show active{% endif %}" aria-labelledby="tab-ldap" role="tabpanel">
+                        <form method="post" action="{% url "administration:login" %}?tab_ldapuserlogin=True" class="link-div-modal-action-login">
+                            {% csrf_token %}
+                            <div class="tab-pane-modal-form">
+                                <!-- Modal Menssage -->
+                                <div class="modal-message"></div>
+                                <!-- Modal Form -->
+                                <div class="modal-form">
+                                    {% with ctx_field=ctx_form_ldapuserlogin.ldap_identifier %}
+                                        {% include "administration/_include_/div_modal/_include_/form/textfield/textfield.html" %}
+                                    {% endwith %}
+                                    {% with ctx_field=ctx_form_ldapuserlogin.ldap_password %}
+                                        {% include "administration/_include_/div_modal/_include_/form/textfield/textfield.html" %}
+                                    {% endwith %}
+                                    <div class="divider-transparent"></div>
+                                    <div><a class="btn btn-sm btn-link link-div-modal-modal-reload" data-url="{% url "administration:login_forgot_credential_1" %}?tab_ldapuserlogin_forgot_credential=True"><i class="fa fa-question-circle"></i> {% trans "SECURITY_LOGIN_LINK_FORGOT_CREDENTIAL" %}</a></div>
+                                    <div><a class="btn btn-sm btn-link link-div-modal-modal-reload" data-url="{% url "administration:login_request" %}?tab_ldapuserlogin_request=True"><i class="fa fa-question-circle"></i> {% trans "SECURITY_LOGIN_LINK_REQUEST" %}</a></div>
+                                </div>
+                            </div>
+                            <div class="modal-footer d-flex flex-row justify-content-between">
+                                <div>
+                                    <button type="submit" class="btn btn-sm btn-action btn-action-bg" title="{% trans "SECURITY_ACTION_LOGIN" %}">
+                                        <i class="fa fa-sign-in"></i> {% trans "SECURITY_ACTION_LOGIN" %}
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-action btn-action-outline link-div-modal-action-refresh-from-security-login" data-url="{% url "administration:login" %}?tab_ldapuserlogin=True" title="{% trans "SECURITY_ACTION_REFRESH" %}">
+                                        <i class="fa fa-refresh"></i> <span class="d-none d-md-inline-block">{% trans "SECURITY_ACTION_REFRESH" %}</span>
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-action btn-action-outline link-div-modal-action-close" title="{% trans "SECURITY_ACTION_CLOSE" %}">
+                                        <i class="fa fa-close"></i> <span class="d-none d-md-inline-block">{% trans "SECURITY_ACTION_CLOSE" %}</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="content-local" class="tab-pane fade {% if ctx_tab_localuserlogin %}show active{% endif %}" aria-labelledby="tab-local" role="tabpanel">
+                        <form method="post" action="{% url "administration:login" %}?tab_localuserlogin=True" class="link-div-modal-action-login">
+                            {% csrf_token %}
+                            <div class="tab-pane-modal-form">
+                                <!-- Modal Menssage -->
+                                <div class="modal-message"></div>
+                                <!-- Modal Form -->
+                                <div class="modal-form">
+                                    {% with ctx_field=ctx_form_localuserlogin.local_identifier %}
+                                        {% include "administration/_include_/div_modal/_include_/form/textfield/textfield.html" %}
+                                    {% endwith %}
+                                    {% with ctx_field=ctx_form_localuserlogin.local_password %}
+                                        {% include "administration/_include_/div_modal/_include_/form/textfield/textfield.html" %}
+                                    {% endwith %}
+                                    <div class="divider-transparent"></div>
+                                    <div><a class="btn btn-sm btn-link link-div-modal-modal-reload" data-url="{% url "administration:login_forgot_credential_1" %}?tab_localuserlogin_forgot_credential=True"><i class="fa fa-question-circle"></i> {% trans "SECURITY_LOGIN_LINK_FORGOT_CREDENTIAL" %}</a></div>
+                                    {% comment %}<div><a class="btn btn-sm btn-link link-div-modal-modal-reload" data-url="{% url "administration:login_request" %}?tab_localuserlogin_request=True"><i class="fa fa-question-circle"></i> {% trans "SECURITY_LOGIN_LINK_REQUEST" %}</a></div>{% endcomment %}
+                                </div>
+                            </div>
+                            <div class="modal-footer d-flex flex-row justify-content-between">
+                                <div>
+                                    <button type="submit" class="btn btn-sm btn-action btn-action-bg" title="{% trans "SECURITY_ACTION_LOGIN" %}">
+                                        <i class="fa fa-sign-in"></i> {% trans "SECURITY_ACTION_LOGIN" %}
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-action btn-action-outline link-div-modal-action-refresh-from-security-login" data-url="{% url "administration:login" %}?tab_localuserlogin=True" title="{% trans "SECURITY_ACTION_REFRESH" %}">
+                                        <i class="fa fa-refresh"></i> <span class="d-none d-md-inline-block">{% trans "SECURITY_ACTION_REFRESH" %}</span>
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-action btn-action-outline link-div-modal-action-close" title="{% trans "SECURITY_ACTION_CLOSE" %}">
+                                        <i class="fa fa-close"></i> <span class="d-none d-md-inline-block">{% trans "SECURITY_ACTION_CLOSE" %}</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

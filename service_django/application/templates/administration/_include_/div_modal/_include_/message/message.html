@@ -1,0 +1,11 @@
+{% if ctx_messages %}
+    {% for ctx_message in ctx_messages %}
+        <div class="alert alert-{% if ctx_message.tags == "error" %}danger{% else %}{{ ctx_message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+            <button type="button" class="btn btn-sm btn-action btn-action-outline align-self-center link-alert-action-close" data-dismiss="alert" aria-label="Close"><i class="fa fa-close"></i></button>
+            <div class="alert-message">
+                <p class="alert-message-icon"><i class="fa fa-hand-o-right" aria-hidden="true"></i></p>
+                <p class="alert-message-text">{{ ctx_message|safe }}</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}

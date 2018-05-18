@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+
+
+
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSERS"
+msgstr "LOCAL usuarios"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER"
+msgstr "LOCAL usuario"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER_TABLE_NAME"
+msgstr "Nombre"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER_TABLE_IDENTIFIER"
+msgstr "Identificador"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER_TABLE_IS_ACTIVE"
+msgstr "Es activo"
+
+
+
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER_ID"
+msgstr "ID"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER_IS_ACTIVE"
+msgstr "Es activo"
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER_IS_ACTIVE_HELP_TEXT"
+msgstr "Indica si esta instancia debe tratarse como activa. Desactive esta opción en lugar de eliminarla."
+
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER_CREATED"
+msgstr "Creado"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER_MODIFIED"
+msgstr "Modificado"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER_AVATAR"
+msgstr "Avatar"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER_FIRST_NAME"
+msgstr "Nombre"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER_LAST_NAME"
+msgstr "Apellidos"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER_IDENTIFIER"
+msgstr "Identificador"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER_EMAIL"
+msgstr "Correo"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER_PASSWORD"
+msgstr "Contraseña"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER_PASSWORD_CONFIRMATION"
+msgstr "Confirmación de contraseña"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER_GROUPS"
+msgstr "Grupos"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER_PERMISSIONS"
+msgstr "Permisos"
+
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER_DETAIL"
+msgstr "Detalle"
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER_DETAIL_HELP_TEXT"
+msgstr "Escribe un breve resumen."
+
+
+
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER_VALIDATION Only letters, numbers and the special character dot."
+msgstr "Sólo letras, números y el carácter especial punto."
+
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER_VALIDATION Only letters, numbers and the special character _."
+msgstr "Sólo letras, números y el carácter especial _."
+
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER_VALIDATION Only letters, numbers and special characters dot, -, _ and space."
+msgstr "Sólo letras, números y los carácteres especiales punto, - , _ y espacio."
+
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER_VALIDATION The avatar should not be beggear than %(weight)s."
+msgstr "El avatar no debe ser más grande que %(weight)s."
+
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER_VALIDATION This identifier has already been chosen."
+msgstr "Este identificador ya ha sido elegido."
+
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER_VALIDATION This email has already been chosen."
+msgstr "Este correo ya ha sido elegido."
+
+msgid "ADMINISTRATION_MODULE_SECURITY_LOCALUSER_VALIDATION The password and your confirmation do not match."
+msgstr "La contraseña y su confirmación no coinciden."

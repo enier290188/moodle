@@ -1,0 +1,14 @@
+{% load i18n %}
+
+<form method="get" action="{{ ctx_url }}" class="link-div-center-div-content-table-tbody-and-pagination-action-search">
+    <div class="form-group">
+        <div class="input-group input-group-sm">
+            <input type="text" id="search" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon2"/>
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-action btn-action-outline" title="{% trans "ADMINISTRATION_MODULE_ACTION_SEARCH" %}">
+                    <i class="fa fa-search"></i><span class="d-none d-md-inline"> {% trans "ADMINISTRATION_MODULE_ACTION_SEARCH" %}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>

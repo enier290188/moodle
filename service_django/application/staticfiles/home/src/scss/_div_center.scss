@@ -1,0 +1,230 @@
+@import "variables";
+
+#div-center {
+  position: fixed;
+  overflow: auto;
+  color: $color-text;
+
+  #div-content {
+    background-color: $color-light;
+    color: $color-text;
+
+    @import "utilities/btn-action";
+    @import "utilities/form-group";
+
+    #div-content-header {
+      margin: 0 0 8px 0;
+      padding: 0 0 2px 0;
+      border-bottom: 1px solid $color-border;
+
+      h4 {
+        min-height: 32px;
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    #div-content-search {
+      margin: 0 0 8px 0;
+      padding: 0;
+    }
+
+    #div-content-table {
+      margin: 0 0 8px 0;
+      padding: 0;
+
+      &.table-responsive {
+        .table.table-list {
+          margin: 0;
+          padding: 0;
+
+          thead {
+            tr {
+              th {
+                height: 40px;
+                vertical-align: middle;
+                padding: 0 4px;
+                border: none;
+                background-color: $color-primary;
+                font-weight: normal;
+                color: $color-text;
+
+                &:first-of-type {
+                  // 25 + 2 + 2 + 25 + 2 + 2 + 25 = 83 => 83
+                  min-width: 90px;
+                  width: 90px;
+                  padding: 0;
+                  vertical-align: middle;
+                  text-align: center;
+
+                  .btn.btn-action {
+                    width: 84px;
+                    height: 32px;
+                    margin: 0;
+                    padding: 0;
+
+                    &:active {
+                      border-color: $color-primary;
+                    }
+                  }
+                }
+
+                &:nth-of-type(2) {
+                  padding-left: 20px;
+                }
+
+                &.th-pk {
+                  width: 50px;
+                  min-width: 50px;
+                }
+
+                &.th-name {
+                  min-width: 500px;
+                }
+
+                &.th-identifier-normal {
+                  width: 160px;
+                  min-width: 160px;
+                }
+
+                &.th-identifier-large {
+                  width: 380px;
+                  min-width: 380px;
+                }
+
+                &.th-email {
+                  width: 280px;
+                  min-width: 280px;
+                }
+
+                &.th-is-active {
+                  width: 80px;
+                  min-width: 80px;
+                }
+              }
+            }
+          }
+
+          tbody {
+            tr {
+              &:hover {
+                background-color: transparent;
+              }
+
+              &:first-of-type {
+                th, td {
+                  border-top: none;
+                }
+              }
+
+              &:last-of-type {
+                th, td {
+                  border-bottom: none;
+                }
+              }
+
+              th, td {
+                padding: 4px;
+                border-top: 1px solid $color-border;
+                //white-space: nowrap;
+              }
+
+              th:first-of-type {
+                padding: 0;
+                vertical-align: middle;
+                text-align: center;
+
+                .btn.btn-action {
+                  width: 25px;
+                  height: 25px;
+                  margin: 0;
+                  padding: 0;
+
+                  &:active {
+                    border-color: $color-body;
+                  }
+                }
+
+                .loading {
+                  font-weight: normal;
+                  text-align: left;
+                }
+
+                .not-found {
+                  margin: 0;
+                  padding: 0;
+                  font-weight: normal;
+                  text-align: center;
+                }
+              }
+
+              td:first-of-type {
+                padding-left: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    #div-content-pagination {
+      margin: 0 0 8px 0;
+      padding: 0;
+
+      .pagination {
+        margin: 0;
+        padding: 0;
+
+        .page-item {
+          .page-link {
+            min-width: 28px;
+            border-color: $color-border;
+            background-color: $color-light;
+            color: $color-primary;
+
+            &:hover {
+              background-color: $color-border;
+            }
+
+            &.off-click {
+              cursor: not-allowed;
+            }
+          }
+
+          &.disabled {
+            .page-link {
+              border-top-color: $color-light;
+              border-bottom-color: $color-light;
+              background-color: $color-light;
+              color: $color-text;
+            }
+          }
+
+          &.active {
+            .page-link {
+              border-color: $color-primary;
+              background-color: $color-primary;
+              color: $color-light;
+
+              &.off-click {
+                cursor: none;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @import "_module_/home/website/div_content";
+    @import "_module_/documentation/documentation/div_content";
+  }
+
+  #div-footer {
+    min-height: $div-header-height;
+    background-color: $color-primary;
+
+    p {
+      color: $color-text;
+    }
+  }
+}

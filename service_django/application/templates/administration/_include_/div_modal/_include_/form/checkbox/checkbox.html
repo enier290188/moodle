@@ -1,0 +1,15 @@
+<div class="form-group {% if ctx_field.errors %}has-error{% endif %}">
+    <label for="{{ ctx_field.field.widget.attrs.id }}">{{ ctx_field.field.label }}:{% if ctx_field.field.required %} *{% endif %}</label>
+    <br/>
+    {{ ctx_field }}
+    {% if ctx_field.help_text %}
+        <p class="help-block text-justify">{{ ctx_field.help_text }}</p>
+    {% endif %}
+    {% if ctx_field.errors %}
+        <ul>
+            {% for ctx_error in ctx_field.errors %}
+                <li><i class="fa fa-hand-o-right"></i> {{ ctx_error|escape }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>

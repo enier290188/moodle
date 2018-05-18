@@ -1,0 +1,11 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+
+
+
+msgid "HOME_DIV_CENTER_DIV_FOOTER_COPYRIGHT"
+msgstr "Copyright &copy; Departament of Informatization"

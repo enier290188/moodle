@@ -1,0 +1,82 @@
+{% load i18n security %}
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <form method="post" action="{% url "administration:module:security:ldapuser:create" %}" class="link-div-modal-action-create">
+            {% csrf_token %}
+            <div class="modal-header d-flex flex-row justify-content-between">
+                <p class="modal-title align-self-center"><i class="fa fa-plus"></i> {% trans "ADMINISTRATION_MODULE_ACTION_CREATE" %} &OpenCurlyDoubleQuote;{% trans "ADMINISTRATION_MODULE_SECURITY_LDAPUSER" %}&CloseCurlyDoubleQuote;</p>
+                <button type="button" class="btn btn-sm btn-action btn-action-outline align-self-center link-div-modal-action-close" title="{% trans "ADMINISTRATION_MODULE_ACTION_CLOSE" %}"><i class="fa fa-close"></i></button>
+            </div>
+            <div class="modal-body">
+                <!-- Modal Menssage -->
+                <div class="modal-message"></div>
+                <!-- Modal Form Field -->
+                <div class="modal-form">
+                    {% with ctx_field=ctx_form.first_name %}
+                        {% include "administration/_include_/div_modal/_include_/form/textfield/textfield.html" %}
+                    {% endwith %}
+                    {% with ctx_field=ctx_form.last_name %}
+                        {% include "administration/_include_/div_modal/_include_/form/textfield/textfield.html" %}
+                    {% endwith %}
+
+                    <div class="divider-transparent"></div>
+                    {% with ctx_field=ctx_form.identifier %}
+                        {% include "administration/_include_/div_modal/_include_/form/textfield/textfield.html" %}
+                    {% endwith %}
+                    {% with ctx_field=ctx_form.email %}
+                        {% include "administration/_include_/div_modal/_include_/form/textfield/textfield.html" %}
+                    {% endwith %}
+                    {% with ctx_field=ctx_form.password %}
+                        {% include "administration/_include_/div_modal/_include_/form/textfield/textfield.html" %}
+                    {% endwith %}
+                    {% with ctx_field=ctx_form.password_confirmation %}
+                        {% include "administration/_include_/div_modal/_include_/form/textfield/textfield.html" %}
+                    {% endwith %}
+
+                    <div class="divider-transparent"></div>
+                    {% with ctx_field=ctx_form.detail %}
+                        {% include "administration/_include_/div_modal/_include_/form/textarea/textarea.html" %}
+                    {% endwith %}
+
+                    {% if ctx_form.groups_choices %}
+                        <div class="divider-transparent"></div>
+                        {% with ctx_field=ctx_form.groups ctx_field_instances_choices=ctx_form.groups_choices %}
+                            {% include "administration/_include_/div_modal/_include_/form/checkbox/checkboxselectmultipletree.html" %}
+                        {% endwith %}
+                    {% endif %}
+
+                    {% if ctx_form.permissions_choices %}
+                        <div class="divider-transparent"></div>
+                        {% with ctx_field=ctx_form.permissions ctx_field_instances_choices=ctx_form.permissions_choices %}
+                            {% include "administration/_include_/div_modal/_include_/form/checkbox/checkboxselectmultipletree.html" %}
+                        {% endwith %}
+                    {% endif %}
+
+                    <div class="divider-transparent"></div>
+                    {% with ctx_field=ctx_form.is_active %}
+                        {% include "administration/_include_/div_modal/_include_/form/checkbox/checkbox.html" %}
+                    {% endwith %}
+                </div>
+            </div>
+            <div class="modal-footer d-flex flex-row justify-content-between">
+                <div>
+                    <button type="submit" id="button-submit-create" class="btn btn-sm btn-action btn-action-bg" title="{% trans "ADMINISTRATION_MODULE_ACTION_CREATE" %}">
+                        <i class="fa fa-plus"></i> {% trans "ADMINISTRATION_MODULE_ACTION_CREATE" %}
+                    </button>
+                    {% if request|boolean___has_permission_security_user:"security_ldapuser_update" %}
+                        <button type="submit" id="button-submit-create-and-update" class="btn btn-sm btn-action btn-action-bg" title="{% trans "ADMINISTRATION_MODULE_ACTION_CREATE_UPDATE" %}">
+                            <i class="fa fa-pencil"></i> <span class="d-none d-md-inline-block">{% trans "ADMINISTRATION_MODULE_ACTION_CREATE_UPDATE" %}</span>
+                        </button>
+                    {% endif %}
+                    <button type="button" class="btn btn-sm btn-action btn-action-outline link-div-modal-action-refresh" data-url="{% url "administration:module:security:ldapuser:create" %}" title="{% trans "ADMINISTRATION_MODULE_ACTION_REFRESH" %}">
+                        <i class="fa fa-refresh"></i> <span class="d-none d-md-inline-block">{% trans "ADMINISTRATION_MODULE_ACTION_REFRESH" %}</span>
+                    </button>
+                    <button type="button" class="btn btn-sm btn-action btn-action-outline link-div-modal-action-close" title="{% trans "ADMINISTRATION_MODULE_ACTION_CLOSE" %}">
+                        <i class="fa fa-close"></i> <span class="d-none d-md-inline-block">{% trans "ADMINISTRATION_MODULE_ACTION_CLOSE" %}</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

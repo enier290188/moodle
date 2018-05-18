@@ -1,0 +1,53 @@
+@import "variables";
+
+#div-header {
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: 0;
+  width: auto;
+  height: $div-header-height * 2;
+  z-index: 1035;
+
+  #div-header-brand-toggler {
+    .toggler {
+      margin: auto 2px 2px 2px;
+      padding: 0;
+      background-color: $color-secondary;
+      border-color: transparent;
+      color: $color-primary;
+      transition: all 0.2s ease-in-out;
+
+      &.btn:focus {
+        box-shadow: 0 0 0 0.2rem transparent;
+      }
+
+      &[aria-expanded="true"] {
+        background-color: $color-shadow;
+        border-color: transparent;
+        color: $color-light;
+      }
+    }
+  }
+
+  .nav {
+    .nav-item {
+      &.active, &:active {
+        .nav-link {
+          color: $color-light;
+        }
+      }
+
+      &.dropdown {
+        > .dropdown-menu {
+          .dropdown-item {
+            &:active {
+              background-color: $color-primary;
+              color: $color-light;
+            }
+          }
+        }
+      }
+    }
+  }
+}

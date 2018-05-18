@@ -1,0 +1,11 @@
+@import "../../../variables";
+
+#div-content-home-website {
+  margin: 4px;
+  padding: 0;
+
+  a {
+    color: $color-primary;
+    text-decoration: underline;
+  }
+}

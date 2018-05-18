@@ -1,0 +1,49 @@
+@import "variables";
+
+#div-header {
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: 0;
+  width: auto;
+  height: $div-header-height;
+  z-index: 1035;
+
+  #div-header-brand-toggler {
+    .toggler {
+      display: none;
+    }
+  }
+
+  .nav {
+    .nav-item {
+      &.active, &:hover, &:active {
+        .nav-link {
+          background-color: $color-shadow;
+          color: $color-light;
+        }
+      }
+
+      &.dropdown {
+        &.show {
+          > .nav-link {
+            background-color: $color-shadow;
+          }
+        }
+
+        > .dropdown-menu {
+          .dropdown-item {
+            &:hover {
+              background-color: $color-border;
+            }
+
+            &:active {
+              background-color: $color-primary;
+              color: $color-light;
+            }
+          }
+        }
+      }
+    }
+  }
+}

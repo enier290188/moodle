@@ -1,0 +1,55 @@
+{% load i18n security static %}
+{% get_current_language as ctx_current_language %}
+{% get_available_languages as ctx_available_lenguages %}
+{% get_language_info_list for ctx_available_lenguages as ctx_available_lenguages_info %}
+{% now "YmdHis" as ctx_now %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-auto m-0 p-0 d-flex flex-row align-content-stretch">
+            <div id="div-header-brand-toggler" class="d-flex flex-column flex-md-row">
+                <a class="brand align-self-start" href="{% url "index" %}"><img src="{% static "_images_/logo.png" %}?{{ ctx_now }}" class="rounded-circle"/></a>
+                <button class="toggler align-self-start align-self-md-center btn" type="button" data-toggle="collapse" data-target="#div-leftside" aria-controls="div-leftside" aria-expanded="false"><i class="fa fa-bars"></i></button>
+            </div>
+        </div>
+        <div class="col m-0 p-0 d-flex flex-column flex-md-row justify-content-md-between">
+            <ul class="nav ml-3 align-self-start align-self-md-stretch">
+                <li class="nav-item active"><a class="link-application-reload nav-link" data-url="{% url "home:index" %}"><i class="fa fa-home"></i><span class="d-none d-md-inline"> {% trans "HOME_DIV_HEADER_UL_LEFT_HOME" %}</span></a></li>
+                {% if request|boolean___is_not_security_user_equal_none and request|boolean___show_the_administration_link %}
+                    <li class="nav-item"><a class="link-application-reload nav-link" data-url="{% url "administration:index" %}"><i class="fa fa-wrench"></i><span class="d-none d-md-inline"> {% trans "HOME_DIV_HEADER_UL_LEFT_ADMINISTRATION" %}</span></a></li>
+                {% endif %}
+            </ul>
+            <ul class="nav mr-md-3 align-self-end align-self-md-stretch">
+                {% if request|boolean___is_not_security_user_equal_none|boolean___not %}
+                    <li class="nav-item">
+                        <a class="link-div-modal-reload nav-link" data-url="{% url "home:login" %}"><i class="fa fa-sign-in"></i><span class="d-none d-md-inline"> {% trans "HOME_DIV_HEADER_UL_RIGHT_USER_LOGIN" %}</span></a>
+                    </li>
+                {% endif %}
+                {% if request|boolean___is_not_security_user_equal_none %}
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdownMenuLink1" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{ request|string___security_user_avatar_url }}" class="avatar rounded-circle"/><span class="d-none d-md-inline"> {{ request|instance___security_user }}</span></a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1">
+                            <a class="link-div-modal-reload dropdown-item" data-url="{% url "home:profile" %}"><i class="fa fa-user"></i> {% trans "HOME_DIV_HEADER_UL_RIGHT_USER_PROFILE" %}</a>
+                            <a class="link-div-modal-reload dropdown-item" data-url="{% url "home:logout" %}"><i class="fa fa-sign-out"></i> {% trans "HOME_DIV_HEADER_UL_RIGHT_USER_LOGOUT" %}</a>
+                        </div>
+                    </li>
+                {% endif %}
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdownMenuLink2" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {% for ctx_language in ctx_available_lenguages_info %}
+                            {% if ctx_language.code == ctx_current_language %}
+                                <img src="{% static "_images_/i18n/"|add:ctx_current_language|add:".png" %}?{{ ctx_now }}" class="flag"/><span class="d-none d-md-inline"> {% trans ctx_language.name %}</span>
+                            {% endif %}
+                        {% endfor %}
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink2">
+                        {% for ctx_language in ctx_available_lenguages_info %}
+                            {% if ctx_language.code != ctx_current_language %}
+                                <a class="link-div-modal-action-locale dropdown-item" data-url="{% url "home:locale" %}?locale={{ ctx_language.code }}"><img src="{% static "_images_/i18n/"|add:ctx_language.code|add:".png" %}?{{ ctx_now }}" class="flag"/> {% trans ctx_language.name %}</a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

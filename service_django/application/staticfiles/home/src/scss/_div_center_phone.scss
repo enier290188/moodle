@@ -1,0 +1,21 @@
+@import "variables";
+
+#div-center {
+  top: $div-header-height * 2;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  z-index: 1033;
+  background-color: $color-light;
+
+  #div-content {
+    margin: 0;
+    padding: 8px;
+    border: none;
+
+    @import "_module_/home/website/div_content_phone";
+    @import "_module_/documentation/documentation/div_content_phone";
+  }
+}

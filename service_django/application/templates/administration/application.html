@@ -1,0 +1,35 @@
+{% spaceless %}
+    {% load i18n static %}
+    {% now "YmdHis" as ctx_now %}
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8"/>
+            <meta name="viewport" content="width=device-width, user-scalable=no, shrink-to-fit=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
+            <link href="{% static "_images_/favicon.png" %}?{{ ctx_now }}" rel="shortcut icon" type="image/png"/>
+            <title data-url="{% url "administration:title" %}">...</title>
+            <link href="{% static "_vendors_/bootstrap/css/bootstrap.min.css" %}?{{ ctx_now }}" rel="stylesheet"/>
+            <link href="{% static "_vendors_/font-awesome/css/font-awesome.min.css" %}?{{ ctx_now }}" rel="stylesheet"/>
+            <link href="{% static "_vendors_/jquery-drag-drop-collapsible-tree-table/css/jquery.drag.drop.collapsible.tree.table.css" %}?{{ ctx_now }}" rel="stylesheet"/>
+            <link href="{% static "_vendors_/jquery-checkbox-select-multiple-collapsible-tree-table/css/jquery.checkbox.select.multiple.collapsible.tree.table.css" %}?{{ ctx_now }}" rel="stylesheet"/>
+            <link href="{% static "administration/dist/css/application.min.css" %}?{{ ctx_now }}" rel="stylesheet"/>
+        </head>
+        <body>
+            <div id="div-load" data-url="{% url "administration:div_load" %}"></div>
+            <div id="div-header" data-url="{% url "administration:div_header" %}"></div>
+            <div id="div-leftside" data-url="{% url "administration:div_leftside" %}"></div>
+            <div id="div-center" class="d-flex flex-column justify-content-between">
+                <div id="div-content" data-url="{% url "administration:div_center_div_content" %}"><p class="m-0 p-0">&nbsp;</p></div>
+                <div id="div-footer" class="d-flex flex-row justify-content-start" data-url="{% url "administration:div_center_div_footer" %}"></div>
+            </div>
+            <div id="div-modal" class="modal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="true"></div>
+            <div id="div-modal-modal" class="modal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="true"></div>
+            <script src="{% static "_vendors_/jquery/js/jquery.min.js" %}?{{ ctx_now }}"></script>
+            <script src="{% static "_vendors_/popper/js/popper.min.js" %}?{{ ctx_now }}"></script>
+            <script src="{% static "_vendors_/bootstrap/js/bootstrap.min.js" %}?{{ ctx_now }}"></script>
+            <script src="{% static "_vendors_/jquery-drag-drop-collapsible-tree-table/js/jquery.drag.drop.collapsible.tree.table.js" %}?{{ ctx_now }}"></script>
+            <script src="{% static "_vendors_/jquery-checkbox-select-multiple-collapsible-tree-table/js/jquery.checkbox.select.multiple.collapsible.tree.table.js" %}?{{ ctx_now }}"></script>
+            <script src="{% static "administration/dist/js/application.min.js" %}?{{ ctx_now }}"></script>
+        </body>
+    </html>
+{% endspaceless %}

@@ -1,0 +1,383 @@
+@import "variables";
+
+#div-modal, #div-modal-modal {
+  .modal-dialog {
+    .modal-content {
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+
+      @import "utilities/btn-action";
+      @import "utilities/form-group";
+
+      .modal-header {
+        margin: 0;
+        padding: 4px 4px 4px 8px;
+        background-color: $color-primary;
+        border-radius: 0;
+        border: none;
+
+        .modal-title {
+          margin: 0;
+          padding: 0;
+          color: $color-light;
+        }
+
+        .btn.btn-action {
+          &:active {
+            border-color: $color-primary;
+          }
+        }
+      }
+
+      .modal-body {
+        margin: 0;
+        padding: 0;
+
+        .modal-message {
+          .alert {
+            margin: 0;
+            padding: 8px;
+            border-radius: 0;
+            color: $color-primary;
+
+            &.alert-success {
+              border: 1px solid $color-success;
+              background-color: $color-success;
+            }
+
+            &.alert-info {
+              border: 1px solid $color-info;
+              background-color: $color-info;
+            }
+
+            &.alert-warning {
+              border: 1px solid $color-warning;
+              background-color: $color-warning;
+            }
+
+            &.alert-danger {
+              border: 1px solid $color-danger;
+              background-color: $color-danger;
+            }
+
+            .btn.btn-action.link-alert-action-close {
+              position: absolute;
+              top: 4px;
+              right: 4px;
+              background-color: transparent;
+              border: 1px solid transparent;
+              color: inherit;
+
+              &:hover {
+                background-color: $color-primary;
+                color: $color-light;
+              }
+
+              &:active {
+                background-color: $color-border;
+                color: $color-light;
+              }
+            }
+
+            .alert-message {
+              margin: 0;
+              padding: 0;
+
+              .alert-message-icon {
+                float: left;
+                width: 24px;
+                margin: 0;
+                padding: 0;
+                color: inherit;
+              }
+
+              .alert-message-text {
+                margin: 0 24px 0 24px;
+                padding: 0;
+                color: inherit;
+              }
+            }
+          }
+        }
+
+        .modal-form {
+          margin: 0;
+          padding: 12px;
+          color: $color-text;
+
+          .divider-transparent {
+            margin: 16px 0 8px 0;
+            border-top: 1px solid transparent;
+          }
+
+          .divider-solid {
+            margin: 16px 0 8px 0;
+            border-top: 1px solid $color-border;
+          }
+
+          .divider-dotted {
+            margin: 16px 0 8px 0;
+            border-top: 1px dotted $color-border;
+          }
+
+          *[readonly="readonly"] {
+            cursor: not-allowed;
+          }
+
+          .form-group {
+            label {
+              margin: 0;
+              padding: 0;
+              font-weight: bolder;
+            }
+
+            .input-group {
+              margin: 0;
+              padding: 0;
+
+              .input-group-prepend {
+                .input-group-text {
+                  border-radius: 0;
+                  border-color: $color-border;
+                  background-color: $color-light;
+                  color: $color-text;
+
+                  .fa {
+                    min-width: 24px;
+                  }
+                }
+              }
+            }
+
+            .form-control {
+              border-radius: 0;
+              border-color: $color-border;
+              color: $color-text;
+            }
+
+            .field-avatar {
+              .image {
+                img {
+                  width: 100px;
+                  height: 100px;
+                  margin: 0;
+                  padding: 4px;
+                  border: 1px solid $color-border;
+                }
+              }
+
+              .button {
+                margin-left: 8px;
+              }
+            }
+
+            .field-table {
+              table {
+                margin: 0;
+                padding: 0;
+                border: 1px solid $color-border;
+
+                tr {
+                  td {
+                    border: none;
+                    white-space: nowrap;
+
+                    label {
+                      font-weight: normal;
+
+                      input[type="checkbox"] {
+                        margin-right: 8px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            .help-block {
+              margin: 0;
+              padding: 0;
+              font-style: italic;
+              font-size: 12px;
+              color: $color-text;
+            }
+
+            ul {
+              margin: 0;
+              padding: 0 0 0 8px;
+
+              li {
+                list-style: none;
+              }
+            }
+
+            &.has-error {
+              label,
+              .help-block, ul li {
+                color: $color-danger;
+              }
+
+              .input-group {
+                .input-group-prepend {
+                  .input-group-text {
+                    border-color: $color-danger;
+                    color: $color-danger;
+                  }
+                }
+              }
+
+              .form-control {
+                border-color: $color-danger;
+                color: $color-danger;
+
+                &:focus {
+                  box-shadow: 0 0 0 0.2rem $color-danger;
+                }
+              }
+
+              .field-avatar {
+                .image {
+                  img {
+                    border-color: $color-danger;
+                    color: $color-danger;
+                  }
+                }
+
+                .button {
+                  .btn.btn-action {
+                    &.btn-action-outline {
+                      border-color: $color-danger;
+                      color: $color-danger;
+                    }
+
+                    &:active {
+                      border-color: $color-light;
+                    }
+                  }
+                }
+              }
+
+              .field-table {
+                table {
+                  border-color: $color-danger;
+                }
+              }
+            }
+          }
+        }
+
+        .modal-tab {
+          .nav-tabs {
+            border-bottom-color: $color-border;
+
+            .nav-item.nav-link {
+              border-radius: 0;
+              border-top: none;
+              color: $color-text;
+
+              &.active {
+                border-color: $color-border $color-border $color-light $color-border;
+                font-weight: bolder;
+
+                &:hover {
+                  border-color: $color-border $color-border $color-light $color-border;
+                }
+              }
+
+              &:hover {
+                border-color: $color-border;
+              }
+
+              &.has-error {
+                color: $color-danger
+              }
+            }
+          }
+
+          .tab-content {
+          }
+        }
+
+        .modal-table {
+          margin: 0;
+          padding: 12px 0 12px 0;
+
+          table {
+            margin: 0;
+            padding: 0;
+
+            thead {
+              tr {
+                th {
+                  height: 40px;
+                  vertical-align: middle;
+                  padding: 0 4px;
+                  border: none;
+                  background-color: $color-light;
+                  font-weight: bolder;
+                  color: $color-text;
+                }
+              }
+            }
+
+            tbody {
+              tr {
+                &:hover {
+                  background-color: transparent;
+                }
+
+                th, td {
+                  padding: 4px;
+                  border-top: 1px solid $color-border;
+                  color: $color-text;
+                  white-space: nowrap;
+
+                  .field-avatar {
+                    text-align: left;
+
+                    img {
+                      width: 100px;
+                      height: 100px;
+                      margin: 0;
+                      padding: 4px;
+                      border: 1px solid $color-border;
+                    }
+                  }
+                }
+
+                th:first-of-type {
+                  padding-left: 12px;
+                }
+
+                td:last-of-type {
+                  padding-right: 12px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .modal-footer {
+        margin: 0;
+        padding: 8px;
+        border-top: 1px solid $color-border;
+      }
+
+      &.modal-content-message {
+        background-color: transparent;
+
+        .modal-message {
+          .alert {
+            margin: 0 0 5px 0;
+
+            &:last-of-type {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{% load i18n security %}
+
+{% for ctx_instance in ctx_page.object_list %}
+    <tr>
+        <th scope="row">
+            {% if request|boolean___has_permission_security_user:"security_ldapuser_detail" %}
+                <button data-url="{% url "administration:module:security:ldapuser:detail" pk=ctx_instance.pk %}" class="btn btn-sm btn-action btn-action-outline link-div-modal-reload" title="{% trans "ADMINISTRATION_MODULE_ACTION_DETAIL" %}"><i class="fa fa-eye"></i></button>
+            {% endif %}
+            {% if request|boolean___has_permission_security_user:"security_ldapuser_update" %}
+                <button data-url="{% url "administration:module:security:ldapuser:update" pk=ctx_instance.pk %}" class="btn btn-sm btn-action btn-action-outline link-div-modal-reload" title="{% trans "ADMINISTRATION_MODULE_ACTION_UPDATE" %}"><i class="fa fa-pencil"></i></button>
+            {% endif %}
+            {% if request|boolean___has_permission_security_user:"security_ldapuser_delete" %}
+                <button data-url="{% url "administration:module:security:ldapuser:delete" pk=ctx_instance.pk %}" class="btn btn-sm btn-action btn-action-outline link-div-modal-reload" title="{% trans "ADMINISTRATION_MODULE_ACTION_DELETE" %}"><i class="fa fa-trash"></i></button>
+            {% endif %}
+        </th>
+        <td>{{ ctx_instance }}</td>
+        <td>{{ ctx_instance.identifier }}</td>
+        <td>{% if ctx_instance.is_active == True %}{% trans "ADMINISTRATION_MODULE_OPTION_YES" %}{% else %}{% trans "ADMINISTRATION_MODULE_OPTION_NO" %}{% endif %}</td>
+    </tr>
+{% empty %}
+    <tr>
+        <th colspan="100">
+            <p class="not-found"><i class="fa fa-hand-o-right"></i> {% trans "ADMINISTRATION_MODULE_OPTION_NOT_FOUND" %} <strong>&OpenCurlyDoubleQuote;{% trans "ADMINISTRATION_MODULE_SECURITY_LDAPUSERS" %}&CloseCurlyDoubleQuote;</strong>.</p>
+        </th>
+    </tr>
+{% endfor %}

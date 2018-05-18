@@ -1,0 +1,26 @@
+{% load i18n security %}
+
+{% for ctx_instance in ctx_page.object_list %}
+    <tr>
+        <th scope="row">
+            {% if request|boolean___has_permission_security_user:"security_requestedldapuser_detail" %}
+                <button data-url="{% url "administration:module:security:requestedldapuser:detail" pk=ctx_instance.pk %}" class="btn btn-sm btn-action btn-action-outline link-div-modal-reload" title="{% trans "ADMINISTRATION_MODULE_ACTION_DETAIL" %}"><i class="fa fa-eye"></i></button>
+            {% endif %}
+            {% if request|boolean___has_permission_security_user:"security_requestedldapuser_approve" %}
+                <button data-url="{% url "administration:module:security:requestedldapuser:approve" pk=ctx_instance.pk %}" class="btn btn-sm btn-action btn-action-outline link-div-modal-reload" title="{% trans "ADMINISTRATION_MODULE_ACTION_APPROVE" %}"><i class="fa fa-user-plus"></i></button>
+            {% endif %}
+            {% if request|boolean___has_permission_security_user:"security_requestedldapuser_disapprove" %}
+                <button data-url="{% url "administration:module:security:requestedldapuser:disapprove" pk=ctx_instance.pk %}" class="btn btn-sm btn-action btn-action-outline link-div-modal-reload" title="{% trans "ADMINISTRATION_MODULE_ACTION_DISAPPROVE" %}"><i class="fa fa-user-times"></i></button>
+            {% endif %}
+        </th>
+        <td>{{ ctx_instance }}</td>
+        <td>{{ ctx_instance.identifier }}</td>
+        <td>{{ ctx_instance.email }}</td>
+    </tr>
+{% empty %}
+    <tr>
+        <th colspan="100">
+            <p class="not-found"><i class="fa fa-hand-o-right"></i> {% trans "ADMINISTRATION_MODULE_OPTION_NOT_FOUND" %} <strong>&OpenCurlyDoubleQuote;{% trans "ADMINISTRATION_MODULE_SECURITY_REQUESTEDLDAPUSERS" %}&CloseCurlyDoubleQuote;</strong>.</p>
+        </th>
+    </tr>
+{% endfor %}

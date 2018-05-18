@@ -1,0 +1,33 @@
+{% load i18n security %}
+
+{% if request|boolean___is_not_security_user_equal_none %}
+    <div id="div-leftside-user" class="container-fluid">
+        <div class="row">
+            <div class="col-auto m-0 p-0">
+                <img src="{{ request|string___security_user_avatar_url }}" class="avatar rounded-circle"/>
+            </div>
+            <div class="col m-0 p-0">
+                <p class="data">{{ request|instance___security_user }}</p>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+<div id="div-leftside-nav" class="container-fluid">
+    <div class="row">
+        <div class="col mt-2 mr-0 mb-3 ml-0 p-0">
+            <ul class="level-0 nav">
+                <li class="nav-item">
+                    {% url "home:module:home:website:index" as ctx_url %}
+                    <a class="link-div-center-div-content-reload nav-link {% if ctx_url == request|string___security_user_url_current %}active{% endif %}" data-url="{{ ctx_url }}"><span><i class="fa fa-sitemap"></i> {% trans "HOME_DIV_LEFTSIDE_NAV_HOME_WEBSITE" %}</span></a>
+                </li>
+                {% if request|boolean___is_not_security_user_equal_none %}
+                    <li class="nav-item">
+                        {% url "home:module:documentation:documentation:index" as ctx_url %}
+                        <a class="link-div-center-div-content-reload nav-link {% if ctx_url == request|string___security_user_url_current %}active{% endif %}" data-url="{{ ctx_url }}"><span><i class="fa fa-book"></i> {% trans "HOME_DIV_LEFTSIDE_NAV_DOCUMENTATION_DOCUMENTATION" %}</span></a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>

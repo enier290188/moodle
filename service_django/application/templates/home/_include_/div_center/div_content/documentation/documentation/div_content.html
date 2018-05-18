@@ -1,0 +1,12 @@
+{% load i18n %}
+
+<header id="div-content-header" class="d-flex flex-row justify-content-between">
+    <h4 class="align-self-center"><i class="fa fa-book"></i> {% trans "HOME_MODULE_DOCUMENTATION_DOCUMENTATION" %}</h4>
+</header>
+
+<div id="div-content-documentation-documentation" class="container-fluid">
+    <div class="row">
+        <div id="div-content-documentation-documentation-tree" class="col-12 col-md-4 order-md-last" data-url="{% url "home:module:documentation:documentation:tree" %}"></div>
+        <div id="div-content-documentation-documentation-content" class="col-12 col-md-8 order-md-first" data-url="{% url "home:module:documentation:documentation:content" pk=0 %}"></div>
+    </div>
+</div>
