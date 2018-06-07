@@ -133,8 +133,8 @@ class Command(management.base.BaseCommand):
         #     period=models___django_celery_beat.IntervalSchedule.SECONDS,
         # )
         crontabschedule, boolean___created = django_celery_beat_models.CrontabSchedule.objects.get_or_create(
-            minute='*/1',  # */1
-            hour='*',  # '0,8,9,10,11,12,13,14,15,16,17,18',  # 0,12 # midnight and noon
+            minute='0',  # */1
+            hour='*/1',  # '0,8,9,10,11,12,13,14,15,16,17,18',  # 0,12 # midnight and noon
             day_of_week='*',
             day_of_month='*',
             month_of_year='*',
@@ -151,58 +151,58 @@ class Command(management.base.BaseCommand):
         self.stdout.write('%s %s %s' % ('+' * 3, 'Optional.....', '+' * 82))
         self.stdout.write('%s' % ('+' * 100))
         #
-        int___count = 1
-        while int___count <= 10:
-            string___count = ''
-            if 1 <= int___count < 10:
-                string___count = '00%s' % (int___count,)
-            elif 10 <= int___count < 100:
-                string___count = '0%s' % (int___count,)
-            elif 100 <= int___count < 1000:
-                string___count = '%s' % (int___count,)
-            #
-            instance___localuser = security_models.LOCALUser(
-                is_active=True,
-                identifier='enier%s' % (string___count,),
-                email='enier%s@local.cu' % (string___count,),
-                first_name='Enier%s' % (string___count,),
-                last_name='Ramos Garcia',
-                password='',
-                detail='Detail'
-            )
-            instance___localuser.save()
-            #
-            instance___ldapuser = security_models.LDAPUser(
-                is_active=True,
-                identifier='enier%s' % (string___count,),
-                email='enier%s@ldap.cu' % (string___count,),
-                first_name='Enier%s' % (string___count,),
-                last_name='Ramos Garcia',
-                password='',
-                detail='Detail'
-            )
-            instance___ldapuser.save()
-            #
-            int___count += 1
+        # int___count = 1
+        # while int___count <= 10:
+        #     string___count = ''
+        #     if 1 <= int___count < 10:
+        #         string___count = '00%s' % (int___count,)
+        #     elif 10 <= int___count < 100:
+        #         string___count = '0%s' % (int___count,)
+        #     elif 100 <= int___count < 1000:
+        #         string___count = '%s' % (int___count,)
+        #     #
+        #     instance___localuser = security_models.LOCALUser(
+        #         is_active=True,
+        #         identifier='enier%s' % (string___count,),
+        #         email='enier%s@local.cu' % (string___count,),
+        #         first_name='Enier%s' % (string___count,),
+        #         last_name='Ramos Garcia',
+        #         password='',
+        #         detail='Detail'
+        #     )
+        #     instance___localuser.save()
+        #     #
+        #     instance___ldapuser = security_models.LDAPUser(
+        #         is_active=True,
+        #         identifier='enier%s' % (string___count,),
+        #         email='enier%s@ldap.cu' % (string___count,),
+        #         first_name='Enier%s' % (string___count,),
+        #         last_name='Ramos Garcia',
+        #         password='',
+        #         detail='Detail'
+        #     )
+        #     instance___ldapuser.save()
+        #     #
+        #     int___count += 1
         #
-        int___count = 1
-        while int___count <= 30:
-            string___count = ''
-            if 1 <= int___count < 10:
-                string___count = '00%s' % (int___count,)
-            elif 10 <= int___count < 100:
-                string___count = '0%s' % (int___count,)
-            elif 100 <= int___count < 1000:
-                string___count = '%s' % (int___count,)
-            instance___document = documentation_models.Document(
-                is_active=True,
-                title_en='title%s-en' % (string___count,),
-                title_es='title%s-es' % (string___count,),
-                content_en='content%s-en' % (string___count,),
-                content_es='content%s-es' % (string___count,),
-            )
-            instance___document.save()
-            int___count += 1
+        # int___count = 1
+        # while int___count <= 30:
+        #     string___count = ''
+        #     if 1 <= int___count < 10:
+        #         string___count = '00%s' % (int___count,)
+        #     elif 10 <= int___count < 100:
+        #         string___count = '0%s' % (int___count,)
+        #     elif 100 <= int___count < 1000:
+        #         string___count = '%s' % (int___count,)
+        #     instance___document = documentation_models.Document(
+        #         is_active=True,
+        #         title_en='title%s-en' % (string___count,),
+        #         title_es='title%s-es' % (string___count,),
+        #         content_en='content%s-en' % (string___count,),
+        #         content_es='content%s-es' % (string___count,),
+        #     )
+        #     instance___document.save()
+        #     int___count += 1
         #
         self.stdout.write('')
         self.stdout.write('%s' % ('*' * 100))
